@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/*MAKING THE MAIN ANIME BACKGROUND IMAGE GOES TO BLACK*/
+.BgCustomCss{
+    background-size: cover;
+    background-position: center;
+}
