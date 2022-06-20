@@ -543,68 +543,17 @@ video {
 .absolute {
   position: absolute;
 }
-.relative {
-  position: relative;
-}
-.bottom-0 {
-  bottom: 0px;
-}
-.right-0 {
-  right: 0px;
-}
-.top-0 {
-  top: 0px;
-}
-.top-\[20px\] {
-  top: 20px;
-}
-.top-\[40px\] {
-  top: 40px;
-}
-.top-\[45px\] {
-  top: 45px;
-}
-.top-\[50px\] {
-  top: 50px;
-}
 .top-\[55px\] {
   top: 55px;
-}
-.right-\[-100px\] {
-  right: -100px;
-}
-.right-\[-200px\] {
-  right: -200px;
 }
 .right-\[-75\%\] {
   right: -75%;
 }
-.right-\[-74\%\] {
-  right: -74%;
-}
-.top-\[10px\] {
-  top: 10px;
-}
-.top-\[70px\] {
-  top: 70px;
-}
-.top-\[65px\] {
-  top: 65px;
-}
-.right-\[-250px\] {
-  right: -250px;
-}
-.right-\[-300px\] {
-  right: -300px;
-}
 .right-\[-350px\] {
   right: -350px;
 }
-.right-\[-340px\] {
-  right: -340px;
-}
-.right-\[-345px\] {
-  right: -345px;
+.top-\[65px\] {
+  top: 65px;
 }
 .mx-auto {
   margin-left: auto;
@@ -637,6 +586,9 @@ video {
 .h-12 {
   height: 3rem;
 }
+.h-screen {
+  height: 100vh;
+}
 .h-auto {
   height: auto;
 }
@@ -646,19 +598,11 @@ video {
 .h-60 {
   height: 15rem;
 }
-.h-max {
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
-}
-.h-full {
-  height: 100%;
-}
-.h-screen {
-  height: 100vh;
-}
 .w-12 {
   width: 3rem;
+}
+.w-3\/4 {
+  width: 75%;
 }
 .w-full {
   width: 100%;
@@ -669,18 +613,6 @@ video {
 .w-5\/6 {
   width: 83.333333%;
 }
-.w-1\/2 {
-  width: 50%;
-}
-.w-2\/3 {
-  width: 66.666667%;
-}
-.w-2\/4 {
-  width: 50%;
-}
-.w-3\/4 {
-  width: 75%;
-}
 .max-w-\[220px\] {
   max-width: 220px;
 }
@@ -690,62 +622,35 @@ video {
 .cursor-pointer {
   cursor: pointer;
 }
-.flex-row {
-  flex-direction: row;
-}
 .flex-col {
   flex-direction: column;
 }
 .content-center {
   align-content: center;
 }
-.content-end {
-  align-content: flex-end;
-}
 .items-center {
   align-items: center;
-}
-.justify-center {
-  justify-content: center;
 }
 .justify-between {
   justify-content: space-between;
 }
-.self-center {
-  align-self: center;
-}
-.overflow-y-auto {
-  overflow-y: auto;
-}
 .overflow-x-hidden {
   overflow-x: hidden;
-}
-.overflow-y-hidden {
-  overflow-y: hidden;
 }
 .rounded-full {
   border-radius: 9999px;
 }
-.rounded-xl {
-  border-radius: 0.75rem;
-}
 .rounded {
   border-radius: 0.25rem;
+}
+.rounded-xl {
+  border-radius: 0.75rem;
 }
 .border-\[1px\] {
   border-width: 1px;
 }
 .border-b-\[1px\] {
   border-bottom-width: 1px;
-}
-.border-l-\[1px\] {
-  border-left-width: 1px;
-}
-.border-r-\[1px\] {
-  border-right-width: 1px;
-}
-.border-solid {
-  border-style: solid;
 }
 .border-black {
   --tw-border-opacity: 1;
@@ -755,36 +660,17 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
-.bg-black {
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
-}
-.bg-red-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(254 226 226 / var(--tw-bg-opacity));
-}
-.bg-red-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
-}
-.bg-gray-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
-}
-.bg-gray-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
-}
 .bg-gray-300 {
   --tw-bg-opacity: 1;
   background-color: rgb(209 213 219 / var(--tw-bg-opacity));
 }
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
-}
-.p-4 {
-  padding: 1rem;
 }
 .p-2 {
   padding: 0.5rem;
@@ -809,14 +695,6 @@ video {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
 }
-.px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-.py-4 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
 .pl-2 {
   padding-left: 0.5rem;
 }
@@ -828,9 +706,6 @@ video {
 }
 .pt-8 {
   padding-top: 2rem;
-}
-.pt-4 {
-  padding-top: 1rem;
 }
 .text-center {
   text-align: center;
@@ -850,18 +725,6 @@ video {
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
-}
-.text-\[10px\] {
-  font-size: 10px;
-}
-.text-\[20px\] {
-  font-size: 20px;
-}
-.text-\[14px\] {
-  font-size: 14px;
-}
-.text-\[15px\] {
-  font-size: 15px;
 }
 .font-bold {
   font-weight: 700;
@@ -891,26 +754,12 @@ video {
 .duration-500 {
   transition-duration: 500ms;
 }
-.ease-in {
-  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
-}
-.ease-out {
-  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-}
 
 
 /*MAKING THE MAIN ANIME BACKGROUND IMAGE GOES TO BLACK*/
 .BgCustomCss{
     background-size: cover;
     background-position: center;
-}
-.hover\:bg-red-500:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
-}
-.hover\:bg-gray-100:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
 .hover\:bg-gray-200:hover {
   --tw-bg-opacity: 1;
@@ -920,10 +769,6 @@ video {
 
   .sm\:mr-8 {
     margin-right: 2rem;
-  }
-
-  .sm\:hidden {
-    display: none;
   }
 }
 @media (min-width: 768px) {
@@ -942,10 +787,6 @@ video {
 
   .md\:block {
     display: block;
-  }
-
-  .md\:flex {
-    display: flex;
   }
 
   .md\:hidden {
