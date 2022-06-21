@@ -21,3 +21,6 @@ Route::get('/', [AnimesController::class, 'animes']);
 
 // Showing LogIn page
 Route::get('/login', [UserController::class, 'login']);
+
+// Showing Register page
+Route::get('/register', [UserController::class, 'register']);
