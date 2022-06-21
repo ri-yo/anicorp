@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AnimesController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 // Showing Home page
 Route::get('/', [AnimesController::class, 'animes']);
+
+
+// Showing LogIn page
+Route::get('/login', [UserController::class, 'login']);
