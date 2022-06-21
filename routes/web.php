@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 // Showing Home page
 Route::get('/', [AnimesController::class, 'animes']);
 
+// Showing Single Anime page
+Route::get('/anime', [AnimesController::class, 'anime']);
 
 // Showing LogIn page
 Route::get('/login', [UserController::class, 'login']);
