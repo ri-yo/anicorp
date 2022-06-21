@@ -10,4 +10,9 @@ class AnimesController extends Controller
     public function animes() {
         return view('animes.animes');
     }
+
+    // Function to show a single anime
+    public function anime() {
+        return view('animes.anime');
+    }
 }
