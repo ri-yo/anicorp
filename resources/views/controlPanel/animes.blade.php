@@ -59,6 +59,50 @@
         </div>
     </header>
 
+    <main class=" lass=" h-60 BgCustomCss" style="background-image: linear-gradient(to bottom, transparent, #000000), url('/images/manga.jpg');"">
+
+        <!--Animes options-->
+        <section>
+            <div class=" p-4">
+                <!--Animes button-->
+                <div class=" w-full max-w-[120px] text-center bg-green-400 rounded">
+                    <a href="/controlpanel/animes/new" class=" block py-[15px] text-white text-[17px]">
+                        New anime
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <!--Animes list-->
+            <div class=" bg-white rounded mx-4 p-4 transition">
+                <!--Single anime from list-->
+                <div class=" w-full hover:bg-gray-200 mb-2 flex justify-between">
+                    <a href="" class=" block">
+                        <div>
+                            <img src="{{ asset('images/naruto-capa.jpg') }}" alt="Anime Cover" class=" w-[60px] h-[60px] object-cover rounded-xl inline-block">
+                            <span>Naruto Shippuden</span>
+                            <span> / </span>
+                            <span>Dubbed/Subtitled</span>
+                        </div>
+                        
+                        <div class=" flex items-center">
+                            <a href="/controlpanel/animes/anime/edit" class=" mr-2 px-4 text-white bg-blue-400 rounded"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
+                            <form action="">
+                                <button class=" mr-2 px-4 bg-red-400 text-white rounded ">Delete</button>
+                            </form>
+                        </div>
+                    </a>
+                </div>
+
+                
+
+                
+            </div>
+        </section>
+
+    </main>
+
     <!--Footer-->
     <footer class=" h-60 BgCustomCss" style="background-image: linear-gradient(to top, transparent, #000000), url('/images/manga.jpg');">
         <div class=" text-center pt-8">

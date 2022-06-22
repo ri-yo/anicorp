@@ -31,5 +31,14 @@ Route::get('/register', [UserController::class, 'register']);
 // Showing CONTROL PANEL
 Route::get('/controlpanel', [ControlPanel::class, 'login']);
 
-// Showing CONTROL PANEL home pegae
+// Showing CONTROL PANEL home page
 Route::get('/controlpanel/home', [ControlPanel::class, 'home']);
+
+// Showing CONTROL PANEL animes page
+Route::get('/controlpanel/animes', [ControlPanel::class, 'animes']);
+
+// Showing CONTROL PANEL new anime page
+Route::get('/controlpanel/animes/new', [ControlPanel::class, 'newAnime']);
+
+// Showing CONTROL PANEL edit anime page
+Route::get('/controlpanel/animes/anime/edit', [ControlPanel::class, 'editAnime']);
