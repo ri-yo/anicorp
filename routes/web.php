@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AnimesController;
+use App\Http\Controllers\ControlPanel;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,3 +27,9 @@ Route::get('/login', [UserController::class, 'login']);
 
 // Showing Register page
 Route::get('/register', [UserController::class, 'register']);
+
+// Showing CONTROL PANEL
+Route::get('/controlpanel', [ControlPanel::class, 'login']);
+
+// Showing CONTROL PANEL home pegae
+Route::get('/controlpanel/home', [ControlPanel::class, 'home']);
