@@ -28,17 +28,19 @@ Route::get('/login', [UserController::class, 'login']);
 // Showing Register page
 Route::get('/register', [UserController::class, 'register']);
 
-// Showing CONTROL PANEL
-Route::get('/controlpanel', [ControlPanel::class, 'login']);
+// CONTROL PANEL AUTHENTICATION SYSTEM      
+Route::get('/controlpanel', [ControlPanel::class, 'login'])->name('login')->middleware('guest');
+Route::post('/controlpanel/login/authenticate', [ControlPanel::class, 'authenticate'])->middleware('guest');
+Route::post('/controlpanel/logout', [ControlPanel::class, 'logout'])->middleware('auth');
 
 // Showing CONTROL PANEL home page
-Route::get('/controlpanel/home', [ControlPanel::class, 'home']);
+Route::get('/controlpanel/home', [ControlPanel::class, 'home'])->middleware('auth');
 
 // Showing CONTROL PANEL animes page
-Route::get('/controlpanel/animes', [ControlPanel::class, 'animes']);
+Route::get('/controlpanel/animes', [ControlPanel::class, 'animes'])->middleware('auth');
 
 // Showing CONTROL PANEL new anime page
-Route::get('/controlpanel/animes/new', [ControlPanel::class, 'newAnime']);
+Route::get('/controlpanel/animes/new', [ControlPanel::class, 'newAnime'])->middleware('auth');
 
 // Showing CONTROL PANEL edit anime page
-Route::get('/controlpanel/animes/anime/edit', [ControlPanel::class, 'editAnime']);
+Route::get('/controlpanel/animes/anime/edit', [ControlPanel::class, 'editAnime'])->middleware('auth');

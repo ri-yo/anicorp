@@ -21,14 +21,21 @@
                 <div class=" mb-2 lg:mb-8">
                     <h1 class=" font-bold text-[25px]">Sign in with your administrator account</h1>
                 </div>
-    
+
                 <div>
-                    <form action="">
+                    <form action="controlpanel/login/authenticate" method="POST">
+                        @csrf
                         <div>
-                            <input type="text" name="name" placeholder="Your username" class=" w-full h-[50px] outline-none bg-gray-100 hover:bg-gray-200 focus:border-[2px] focus:border-black rounded pl-2 mb-2">
+                            @error('email')
+                                <p class=" text-xs text-red-500">{{ $message }}</p>
+                            @enderror
+                            <input type="email" name="email" placeholder="Your email" class=" w-full h-[50px] outline-none bg-gray-100 hover:bg-gray-200 focus:border-[2px] focus:border-black rounded pl-2 mb-2">
                         </div>
                         
                         <div>
+                            @error('name')
+                                <p class=" text-xs text-red-500">{{ $message }}</p>
+                            @enderror
                             <input type="password" name="password" placeholder="Your password" class=" w-full h-[50px] outline-none bg-gray-100 hover:bg-gray-200 focus:border-[2px] focus:border-black rounded pl-2 mb-2">
                         </div>
                         

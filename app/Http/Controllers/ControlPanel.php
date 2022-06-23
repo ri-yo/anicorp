@@ -30,4 +30,27 @@ class ControlPanel extends Controller
     public function editAnime() {
         return view('controlPanel.editAnime');
     }
+
+    // Authenticating a new administrator
+    public function authenticate(Request $request) {
+        $secureInfo = $request->validate([
+            'email' => ['required','email'],
+            'password' => ['required']
+        ]);
+
+        if(auth()->attempt($secureInfo, $request['remember'])){
+            $request->session()->regenerate();
+            return redirect('/controlpanel/home')->with('message', 'You are logged in!');
+        };
+
+        return back()->withErrors(['email' => 'Some informations are wrong :('])->onlyInput('email');
+    }
+
+    // Logging a user out
+    public function logout(Request $request) {
+        auth()->logout();
+        $request->session()->invalidate();
+
+        return redirect('/controlpanel');
+    }
 }
