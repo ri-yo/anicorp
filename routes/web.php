@@ -39,8 +39,11 @@ Route::get('/controlpanel/home', [ControlPanel::class, 'home'])->middleware('aut
 // Showing CONTROL PANEL animes page
 Route::get('/controlpanel/animes', [ControlPanel::class, 'animes'])->middleware('auth');
 
+// CONTROL PANEL ANIMES SYSTEM
 // Showing CONTROL PANEL new anime page
 Route::get('/controlpanel/animes/new', [ControlPanel::class, 'newAnime'])->middleware('auth');
+// Storing new anime
+Route::post('/controlpanel/animes/new/store', [ControlPanel::class, 'animeStore']);
 
 // Showing CONTROL PANEL edit anime page
 Route::get('/controlpanel/animes/anime/edit', [ControlPanel::class, 'editAnime'])->middleware('auth');

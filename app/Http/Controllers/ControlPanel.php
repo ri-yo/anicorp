@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Anime;
+use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Http\Request;
 
 class ControlPanel extends Controller
@@ -52,5 +54,23 @@ class ControlPanel extends Controller
         $request->session()->invalidate();
 
         return redirect('/controlpanel');
+    }
+
+    // Storing a new anime
+    public function animeStore(Request $request) {
+        $secureInfo = $request->validate([
+            'name' => ['required', 'max:255', 'min:3'],
+            'description' => ['required'],
+            'animeCover' => ['required'],
+            'animeBackground' => ['required']
+        ]);
+
+        $secureInfo['animeCover'] = $request->file('animeCover')->store('animeCovers', 'public');
+        $secureInfo['animeBackground'] = $request->file('animeBackground')->store('animeBackgrounds', 'public');
+
+        Anime::create($secureInfo);
+        return 'Everything is right!, now go GYM';
+
+        // return $request;
     }
 }
