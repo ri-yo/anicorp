@@ -639,6 +639,21 @@ video {
 .h-\[70px\] {
   height: 70px;
 }
+.h-\[220px\] {
+  height: 220px;
+}
+.h-\[250px\] {
+  height: 250px;
+}
+.h-\[260px\] {
+  height: 260px;
+}
+.min-h-\[180px\] {
+  min-height: 180px;
+}
+.min-h-\[220px\] {
+  min-height: 220px;
+}
 .w-full {
   width: 100%;
 }

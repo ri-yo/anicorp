@@ -1,14 +1,14 @@
 <x-layout>
     <main class=" bg-black">
         <section>
-            <div class=" h-auto w-full BgCustomCss pt-12" style="background-image: linear-gradient(to bottom, transparent, #000000), url('/images/naruto-background.jpg');">
+            <div class=" h-auto w-full BgCustomCss pt-12" style="background-image: linear-gradient(to bottom, transparent, #000000), url('/storage/{{ $anime->animeBackground }}');">
                 <!--Single anime info-->
                 <div class=" mb-12">
                     <div class=" flex flex-col items-center">
-                        <img src="{{ asset('/images/naruto-capa.jpg') }}" alt="Anime cover" class=" w-[220px] rounded">
-                        <h1 class=" text-white text-4xl mb-4">Naruto Shippuden</h1>
+                        <img src="{{ asset('/storage/'.$anime->animeCover) }}" alt="Anime cover" class=" w-[220px] rounded">
+                        <h1 class=" text-white text-4xl mb-4">{{ $anime->name }}</h1>
                         <p class=" text-white text-center max-w-[600px]">
-                            Naruto é um jovem órfão habitante da Vila da Folha que sonha se tornar o quinto Hokage, o maior guerreiro e governante da vila. Ao se graduar como ninja, descobre que tem um demônio raposa selado dentro de si. 
+                            {{ $anime->description }}
                         </p>
                     </div>
                 </div>

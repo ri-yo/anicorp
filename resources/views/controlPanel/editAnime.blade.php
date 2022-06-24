@@ -20,25 +20,27 @@
                 </div>
     
                 <div>
-                    <form action="">
+                    <form action="/controlpanel/animeupdate/{{ $anime->id }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @method('put')
                         <div>
-                            <input type="text" name="name" placeholder="Name" class=" w-full h-[50px] outline-none bg-gray-100 hover:bg-gray-200 focus:border-[2px] focus:border-black rounded pl-2 mb-2">
+                            <input type="text" name="name" placeholder="Name" value="{{ $anime->name }}" class=" w-full h-[50px] outline-none bg-gray-100 hover:bg-gray-200 focus:border-[2px] focus:border-black rounded pl-2 mb-2">
                         </div>
 
                         <div>
-                            <textarea name="description" placeholder="Description" class=" w-full h-[50px] outline-none bg-gray-100 hover:bg-gray-200 focus:border-[2px] focus:border-black rounded pl-2 mb-2 resize-none" ></textarea>
+                            <textarea name="description" placeholder="Description" class=" w-full h-[50px] outline-none bg-gray-100 hover:bg-gray-200 focus:border-[2px] focus:border-black rounded pl-2 mb-2 resize-none" >{{ $anime->description }}</textarea>
                         </div>
 
                         <div class=" border-[1px] border-black rounded p-2 mb-2">
                             <p>New anime cover image</p>
                             <input type="file" name="animeCover" class="w-full py-[10px] outline-none bg-gray-100 hover:bg-gray-200 focus:border-[2px] focus:border-black rounded pl-2 mb-2">
-                            <img src="{{ asset('/images/naruto-capa.jpg') }}" alt="Anime cover" class=" w-full h-[60px] rounded object-cover">
+                            <img src="{{ asset('/storage/'.$anime->animeCover) }}" alt="Anime cover" class=" w-full h-[60px] rounded object-cover">
                         </div>
 
                         <div class=" border-[1px] border-black rounded p-2">
                             <p>New anime's background image</p>
-                            <input type="file" name="animeCover" class="w-full py-[10px] outline-none bg-gray-100 hover:bg-gray-200 focus:border-[2px] focus:border-black rounded pl-2 mb-2">
-                            <img src="{{ asset('/images/naruto-background.jpg') }}" alt="Anime cover" class=" w-full h-[60px] rounded object-cover">
+                            <input type="file" name="animeBackground" class="w-full py-[10px] outline-none bg-gray-100 hover:bg-gray-200 focus:border-[2px] focus:border-black rounded pl-2 mb-2">
+                            <img src="{{ asset('/storage/'.$anime->animeBackground) }}" alt="Anime cover" class=" w-full h-[60px] rounded object-cover">
                         </div>
                         
                         <div class=" mb-4 lg:mb-2">
