@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [AnimesController::class, 'animes']);
 
 // Showing Single Anime page
-Route::get('/anime', [AnimesController::class, 'anime']);
+Route::get('/anime/{anime}', [AnimesController::class, 'anime']);
 
 // Showing LogIn page
 Route::get('/login', [UserController::class, 'login']);
@@ -39,8 +39,17 @@ Route::get('/controlpanel/home', [ControlPanel::class, 'home'])->middleware('aut
 // Showing CONTROL PANEL animes page
 Route::get('/controlpanel/animes', [ControlPanel::class, 'animes'])->middleware('auth');
 
+// CONTROL PANEL ANIMES SYSTEM
 // Showing CONTROL PANEL new anime page
 Route::get('/controlpanel/animes/new', [ControlPanel::class, 'newAnime'])->middleware('auth');
+// Storing new anime
+Route::post('/controlpanel/animes/new/store', [ControlPanel::class, 'animeStore']);
 
 // Showing CONTROL PANEL edit anime page
-Route::get('/controlpanel/animes/anime/edit', [ControlPanel::class, 'editAnime'])->middleware('auth');
+Route::get('/controlpanel/edit/anime/{anime}', [ControlPanel::class, 'animeEdit'])->middleware('auth');
+
+// EDITTING an anime
+Route::put('/controlpanel/animeupdate/{anime}', [ControlPanel::class, 'animeUpdate']);
+
+// DELETING an anime
+Route::delete('/controlpanel/delete/{anime}', [ControlPanel::class, 'animeDelete']);

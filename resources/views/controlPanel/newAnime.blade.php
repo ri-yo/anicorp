@@ -20,27 +20,43 @@
                 </div>
     
                 <div>
-                    <form action="">
+                    <form action="/controlpanel/animes/new/store" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div>
+                            @error('name')
+                                <p class=" text-xs text-red-500">{{ $message }}</p>
+                            @enderror
                             <input type="text" name="name" placeholder="Name" class=" w-full h-[50px] outline-none bg-gray-100 hover:bg-gray-200 focus:border-[2px] focus:border-black rounded pl-2 mb-2">
                         </div>
                         
                         <div>
+                            @error('description')
+                                <p class=" text-xs text-red-500">{{ $message }}</p>
+                            @enderror
                             <textarea name="description" placeholder="Description" class=" w-full h-[50px] outline-none bg-gray-100 hover:bg-gray-200 focus:border-[2px] focus:border-black rounded pl-2 mb-2 resize-none" ></textarea>
                         </div>
 
                         <div class=" border-[1px] border-black rounded p-2 mb-2">
+                            @error('animeCover')
+                                <p class=" text-xs text-red-500">{{ $message }}</p>
+                            @enderror
                             <p>Anime cover image</p>
                             <input type="file" name="animeCover" class="w-full py-[10px] outline-none bg-gray-100 hover:bg-gray-200 focus:border-[2px] focus:border-black rounded pl-2 mb-2">
                         </div>
 
                         <div class=" border-[1px] border-black rounded p-2">
+                            @error('animeBackground')
+                                <p class=" text-xs text-red-500">{{ $message }}</p>
+                            @enderror
                             <p>Anime's background image</p>
-                            <input type="file" name="animeCover" class="w-full py-[10px] outline-none bg-gray-100 hover:bg-gray-200 focus:border-[2px] focus:border-black rounded pl-2 mb-2">
+                            <input type="file" name="animeBackground" class="w-full py-[10px] outline-none bg-gray-100 hover:bg-gray-200 focus:border-[2px] focus:border-black rounded pl-2 mb-2">
                         </div>
                         
                         <div class=" mb-4 lg:mb-12">
-                            <input type="checkbox" name="confirmation" id="" value="1" class=" w-[17px] h-[17px]">
+                            @error('confirmation')
+                                <p class=" text-xs text-red-500">{{ $message }}</p>
+                            @enderror
+                            <input type="checkbox" name="confirmation" value="1" class=" w-[17px] h-[17px]">
                             <span>I'm sure these images will fit perfectly for their purpose!</span>
                         </div>
                         

@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Anime;
+use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ControlPanel extends Controller
 {
@@ -18,7 +21,7 @@ class ControlPanel extends Controller
 
     // Showing animes page for control page
     public function animes() {
-        return view('controlPanel.animes');
+        return view('controlPanel.animes', ['animes' => Anime::latest()->get()]);
     }
 
     // Showing new anime page for control page
@@ -27,8 +30,8 @@ class ControlPanel extends Controller
     }
 
     // Showing anime edit page for control page
-    public function editAnime() {
-        return view('controlPanel.editAnime');
+    public function animeEdit(Anime $anime) {
+        return view('controlPanel.editAnime', ['anime' => $anime]);
     }
 
     // Authenticating a new administrator
@@ -53,4 +56,58 @@ class ControlPanel extends Controller
 
         return redirect('/controlpanel');
     }
+
+    // Storing a new anime
+    public function animeStore(Request $request) {
+        $secureInfo = $request->validate([
+            'name' => ['required', 'max:255', 'min:3'],
+            'description' => ['required'],
+            'animeCover' => ['required'],
+            'animeBackground' => ['required']
+        ]);
+
+        $secureInfo['animeCover'] = $request->file('animeCover')->store('animeCovers', 'public');
+        $secureInfo['animeBackground'] = $request->file('animeBackground')->store('animeBackgrounds', 'public');
+
+        Anime::create($secureInfo);
+        return redirect('/controlpanel/animes')->with('message', 'A new anime was added!');
+    }
+
+    // Deleting an anime
+    public function animeDelete(Anime $anime){
+        //Deleting anime cover image
+        Storage::disk('public')->delete($anime->animeCover);
+        //Deleting anime background image
+        Storage::disk('public')->delete($anime->animeBackground);
+
+        //Deleting anime record from database
+        $anime->delete();
+
+        return redirect('/controlpanel/animes')->with('message', $anime->name.' was deleted :(');
+    }
+
+    // Updating an anime
+    public function animeUpdate(Request $request,Anime $anime) {
+        $secureInfo = $request->validate([
+            'name' => ['required'],
+            'description' => ['required'],
+        ]);
+
+        if($request->hasFile('animeCover')){
+            //Deleting anime cover image
+            Storage::disk('public')->delete($anime->animeCover);
+            $secureInfo['animeCover'] = $request->file('animeCover')->store('animeCovers', 'public');
+        }
+
+        if($request->hasFile('animeBackground')){
+            //Deleting anime background image
+            Storage::disk('public')->delete($anime->animeBackground);
+            $secureInfo['animeBackground'] = $request->file('animeBackground')->store('animeBackgrounds', 'public');
+        }
+
+        $anime->update($secureInfo);
+
+        return redirect('/controlpanel/animes')->with('message', 'An anime was updated');
+    }
+
 }

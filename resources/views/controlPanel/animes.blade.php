@@ -9,7 +9,6 @@
     <title>Anicorp</title>
 </head>
 <body class=" overflow-x-hidden">
-
     <!--Header-->
     <header class=" container mx-auto bg-white flex items-center justify-between py-1 px-2">
         <!--Logo-->
@@ -82,24 +81,28 @@
         <section>
             <!--Animes list-->
             <div class=" bg-white rounded mx-4 p-4 transition">
-                <!--Single anime from list-->
+                @foreach($animes as $key => $anime)
+                    <!--Single anime from list-->
                 <div class=" w-full hover:bg-gray-200 mb-2 flex justify-between">
-                    <a href="" class=" block">
+                    <a href="/anime/{{ $anime->id }}" target="_blank" class=" block">
                         <div>
-                            <img src="{{ asset('images/naruto-capa.jpg') }}" alt="Anime Cover" class=" w-[60px] h-[60px] object-cover rounded-xl inline-block">
-                            <span>Naruto Shippuden</span>
+                            <img src="{{ asset('/storage/'.$anime->animeCover) }}" alt="Anime Cover" class=" w-[60px] h-[60px] object-cover rounded-xl inline-block">
+                            <span>{{ $anime->name }}</span>
                             <span> / </span>
                             <span>Dubbed/Subtitled</span>
                         </div>
                         
                         <div class=" flex items-center">
-                            <a href="/controlpanel/animes/anime/edit" class=" mr-2 px-4 text-white bg-blue-400 rounded"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
-                            <form action="">
-                                <button class=" mr-2 px-4 bg-red-400 text-white rounded ">Delete</button>
+                            <a href="/controlpanel/edit/anime/{{ $anime->id }}" class=" mr-2 px-4 text-white bg-blue-400 rounded"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
+                            <form action="/controlpanel/delete/{{ $anime->id }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class=" mr-2 px-4 bg-red-400 text-white rounded " type="submit">Delete</button>
                             </form>
                         </div>
                     </a>
                 </div>
+                @endforeach
 
                 
 
