@@ -935,6 +935,9 @@ video {
 .duration-300 {
   transition-duration: 300ms;
 }
+.duration-100 {
+  transition-duration: 100ms;
+}
 
 
 /*MAKING THE MAIN ANIME BACKGROUND IMAGE GOES TO BLACK*/
@@ -968,6 +971,18 @@ video {
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.hover\:opacity-50:hover {
+  opacity: 0.5;
+}
+.hover\:opacity-60:hover {
+  opacity: 0.6;
+}
+.hover\:opacity-70:hover {
+  opacity: 0.7;
+}
+.hover\:opacity-80:hover {
+  opacity: 0.8;
 }
 .focus\:border-\[2px\]:focus {
   border-width: 2px;

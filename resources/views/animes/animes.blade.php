@@ -15,7 +15,7 @@
 
 
                         <!--Buttons-->
-                        <div class=" w-full max-w-[220px] bg-white text-center rounded"><a href="/anime/{{ $highlightedAnime->id }}" class=" block py-2 px-7"><i class="fa-solid fa-play"></i> Play</a></div>
+                        <div class=" w-full max-w-[220px] bg-white text-center rounded mt-2 transition-all duration-100 hover:opacity-80"><a href="/anime/{{ $highlightedAnime->id }}" class=" block py-2 px-7"><i class="fa-solid fa-play"></i> Play</a></div>
                     </div>  
 
                     <!--Anime information-->
@@ -52,7 +52,7 @@
                         <p class=" text-white text-sm">Subbed/Subtitled</p>
                         <!--Buttons-->
                         <div class=" mt-2">
-                            <div class=" max-w-[180px] w-full text-center bg-white rounded"><a href="/anime/{{ $anime->id }}" class=" block py-1 px-5"><i class="fa-solid fa-play"></i> Play</a></div>
+                            <div class=" max-w-[180px] w-full text-center bg-white rounded transition-all duration-100 hover:opacity-80"><a href="/anime/{{ $anime->id }}" class=" block py-1 px-5"><i class="fa-solid fa-play"></i> Play</a></div>
                         </div>
                     </div>
                     @endforeach
@@ -76,7 +76,7 @@
                         <p class=" text-white text-sm">Subbed/Subtitled</p>
                         <!--Buttons-->
                         <div class=" mt-2">
-                            <div class=" max-w-[180px] w-full text-center bg-white rounded"><a href="/anime/{{ $latestAnime->id }}" class=" block py-1 px-5"><i class="fa-solid fa-play"></i> Play</a></div>
+                            <div class=" max-w-[180px] w-full text-center bg-white rounded transition-all duration-100 hover:opacity-80"><a href="/anime/{{ $latestAnime->id }}" class=" block py-1 px-5"><i class="fa-solid fa-play"></i> Play</a></div>
                         </div>
                     </div>
                     @endforeach
@@ -103,7 +103,7 @@
                         <p class=" text-white text-sm">Subbed/Subtitled</p>
                         <!--Buttons-->
                         <div class=" mt-2">
-                            <div class=" max-w-[180px] w-full text-center bg-white rounded"><a href="/anime/{{ $filteredAnime->id }}" class=" block py-1 px-5"><i class="fa-solid fa-play"></i> Play</a></div>
+                            <div class=" max-w-[180px] w-full text-center bg-white rounded transition-all duration-100 hover:opacity-80"><a href="/anime/{{ $filteredAnime->id }}" class=" block py-1 px-5"><i class="fa-solid fa-play"></i> Play</a></div>
                         </div>
                     </div>
                     @endforeach
