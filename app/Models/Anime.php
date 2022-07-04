@@ -19,4 +19,8 @@ class Anime extends Model
         }
         
     }
+
+    public function ep() {
+        return $this->hasMany(Ep::class);
+    }
 }

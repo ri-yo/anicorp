@@ -17,41 +17,20 @@
 
             <!--Eps-->
             <div class=" mx-8 p-4 bg-white rounded">
+                @if(count($eps) == 0)
+                <p>We are still working on this anime.</p>
+                @endif
+                @foreach($eps as $key => $ep)
                 <!--Single Ep-->
                 <div class=" w-full border-b-[1px] border-black rounded p-2 hover:bg-gray-200 transition">
-                    <a href="" class=" w-full block">
-                        <span>01</span>
+                    <a href="/anime/{{ $anime->id }}/ep/{{ $ep->id }}" class=" w-full block">
+                        <span>{{ $ep->id }}</span>
                         <span> - </span>
-                        <span>The nine tails is released!</span>
+                        <span>{{ $ep->name }}</span>
                     </a>
                 </div>
-
-                <!--Single Ep-->
-                <div class=" w-full border-b-[1px] border-black rounded p-2 hover:bg-gray-200 transition">
-                    <a href="" class=" w-full block">
-                        <span>02</span>
-                        <span> - </span>
-                        <span>The nine tails is released!</span>
-                    </a>
-                </div>
-
-                <!--Single Ep-->
-                <div class=" w-full border-b-[1px] border-black rounded p-2 hover:bg-gray-200 transition">
-                    <a href="" class=" w-full block">
-                        <span>03</span>
-                        <span> - </span>
-                        <span>The nine tails is released!</span>
-                    </a>
-                </div>
-
-                <!--Single Ep-->
-                <div class=" w-full border-b-[1px] border-black rounded p-2 hover:bg-gray-200 transition">
-                    <a href="" class=" w-full block">
-                        <span>04</span>
-                        <span> - </span>
-                        <span>The nine tails is released!</span>
-                    </a>
-                </div>
+                @endforeach
+                
             </div>
 
         </section>

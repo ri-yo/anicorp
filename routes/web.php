@@ -22,6 +22,9 @@ Route::get('/', [AnimesController::class, 'animes']);
 // Showing Single Anime page
 Route::get('/anime/{anime}', [AnimesController::class, 'anime']);
 
+// Watch anime
+Route::get('/anime/{anime}/ep/{ep}', [AnimesController::class, 'watch']);
+
 // Showing LogIn page
 Route::get('/login', [UserController::class, 'login']);
 
