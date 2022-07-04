@@ -12,4 +12,11 @@ class Anime extends Model
     public $fillable = [
         'name','description','animeCover','animeBackground','confirmation'
     ];
+
+    public function scopeFilter($query) {
+        if(request('search') !== null){
+            $query->where('name', 'LIKE', '%'.request('search').'%');
+        }
+        
+    }
 }
