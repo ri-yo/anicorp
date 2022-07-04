@@ -1,6 +1,8 @@
 <x-layout>
     <main class=" bg-black">
-        <!--Main anime screen-->
+        <!--Only show this section if there is no search being made-->
+        @if(request('search') == null)
+            <!--Main anime screen-->
         <section>
             <!--Main anime background-image-->
             <div class=" h-auto w-full BgCustomCss" style="background-image: linear-gradient(to bottom, transparent, #000000), url('/storage/{{ $highlightedAnime->animeBackground }}');">
@@ -33,6 +35,7 @@
             </div>
             
         </section>
+        
 
         <!--Most watched animes section-->
         <section class=" splide mostWatchedSlider" >
@@ -82,5 +85,32 @@
                 </div>
             </div>
         </section>
+        @endif
+
+        @if(request('search') !== null)
+        <section>
+            <div class=" container mx-auto pt-8">
+                <h1 class=" text-white text-2xl border-b-[1px] mb-4">Results for {{ request('search') }}</h1>
+
+                <!--Anime cards-->
+                <div class=" text-center">
+                    
+                    @foreach($filteredAnimes as $key => $filteredAnime)
+                    <!--Single anime card-->
+                    <div class=" mr-4 mt-2 inline-block text-left">
+                        <img src="{{ asset('/storage/'.$filteredAnime->animeCover) }}" alt="Anime Cover" class=" h-[260px] max-w-[180px] w-full rounded-xl">
+                        <h1 class=" text-white text-lg font-bold">{{ $filteredAnime->name }}</h1>
+                        <p class=" text-white text-sm">Subbed/Subtitled</p>
+                        <!--Buttons-->
+                        <div class=" mt-2">
+                            <div class=" max-w-[180px] w-full text-center bg-white rounded"><a href="/anime/{{ $filteredAnime->id }}" class=" block py-1 px-5"><i class="fa-solid fa-play"></i> Play</a></div>
+                        </div>
+                    </div>
+                    @endforeach
+                    
+                </div>
+            </div>
+        </section>
+        @endif
     </main>
 </x-layout>
