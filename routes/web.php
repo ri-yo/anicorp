@@ -4,6 +4,7 @@ use App\Http\Controllers\AnimesController;
 use App\Http\Controllers\ControlPanel;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Schema;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,3 +57,26 @@ Route::put('/controlpanel/animeupdate/{anime}', [ControlPanel::class, 'animeUpda
 
 // DELETING an anime
 Route::delete('/controlpanel/delete/{anime}', [ControlPanel::class, 'animeDelete']);
+
+// Showing page to control EPS
+Route::get('/controlpanel/{anime}/eps', [ControlPanel::class, 'eps']);
+
+// Showing form to add new eps
+Route::get('/controlpanel/{anime}/eps/new', [ControlPanel::class, 'newEp']);
+
+// Storing a new ep
+Route::post('/controlpanel/{anime}/eps/new/store', [ControlPanel::class, 'storeEp']);
+
+// Deleting an ep
+Route::delete('/controlpanel/delete/{anime}/{ep}', [ControlPanel::class, 'deleteEp']);
+
+// Showing form to update an ep
+Route::get('/controlpanel/epupdate/{anime}/{ep}', [ControlPanel::class, 'epEdit']);
+
+// Updating an ep
+Route::put('/controlpanel/putmethod/update/epupdate/{anime}/{ep}', [ControlPanel::class, 'epUpdate']);
+
+/*
+Route::get('/drop', function () {
+    Schema::dropIfExists('animes');
+});*/

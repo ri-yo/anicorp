@@ -14,7 +14,7 @@
     <header class=" bg-gray-800 flex items-center justify-between py-1 px-8">
         <!--Logo-->
         <div>
-            <a href="/"><img src="{{ asset('images/logo.png') }}" alt="Logo" class=" w-12 h-12 rounded-full object-cover" ></a>
+            <a href="/"><img src="{{ asset('images/logo.jpg') }}" alt="Logo" class=" w-12 h-12 rounded-full object-cover" ></a>
         </div>
 
         <!--Header Items-->
@@ -28,8 +28,9 @@
     <main class=" bg-gray-900 w-full h-screen">
 
         <!--Anime watching screen-->
-        <div class=" w-full h-[520px] bg-red-500">
+        <div class=" w-full h-[520px] ">
         <!--Screen inside here-->
+        <iframe class="w-full h-full" src="https://www.youtube.com/embed/xU47nhruN-Q?modestbranding=1&showinfo=0&rel=0&modestbranding=1&autoplay=1&autohide=1" title="Your Name - Trailer [English Subtitled]" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
 
         <!--bellow buttons-->

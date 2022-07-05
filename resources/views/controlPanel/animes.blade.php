@@ -13,7 +13,7 @@
     <header class=" container mx-auto bg-white flex items-center justify-between py-1 px-2">
         <!--Logo-->
         <div>
-            <a href=""><img src="{{ asset('images/logo.png') }}" alt="Logo" class=" w-12 h-12 rounded-full object-cover" ></a>
+            <a href=""><img src="{{ asset('images/logo.jpg') }}" alt="Logo" class=" w-12 h-12 rounded-full object-cover" ></a>
         </div>
 
         <!--Desktop NavBar-->
@@ -93,6 +93,7 @@
                         </div>
                         
                         <div class=" flex items-center">
+                            <a href="/controlpanel/{{ $anime->id }}/eps" class=" mr-2 px-4 text-white bg-green-400 rounded"><i class="fa-solid fa-circle-plus"></i> Eps</a>
                             <a href="/controlpanel/edit/anime/{{ $anime->id }}" class=" mr-2 px-4 text-white bg-blue-400 rounded"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
                             <form action="/controlpanel/delete/{{ $anime->id }}" method="POST">
                                 @csrf

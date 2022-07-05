@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Anime;
+use App\Models\Ep;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -108,6 +109,47 @@ class ControlPanel extends Controller
         $anime->update($secureInfo);
 
         return redirect('/controlpanel/animes')->with('message', 'An anime was updated');
+    }
+
+    // Showing page to control eps
+    public function eps(Anime $anime) {
+        return view('controlPanel.eps', ['anime' => $anime, 'eps' => $anime->ep()->get()]);
+    }
+
+    // Showing form to add a new ep
+    public function newEp(Anime $anime) {
+        return view('controlPanel.newEp', ['anime' => $anime]);
+    }
+
+    // Storing a new ep
+    public function storeEp(Request $request, Anime $anime) {
+        $secureInfo = $request->validate([
+            'name' => ['required', 'min:2', 'max:255'],
+            'ep' => ['required'],
+            'watch' => ['required']
+        ]);
+
+        $anime->ep()->create($secureInfo);
+
+        return redirect('/controlpanel/'.$anime->id.'/eps')->with('message', 'A new ep was added!');
+
+    }
+
+    // Deleting an ep
+    public function deleteEp(Anime $anime,Ep $ep) {
+        $ep->delete();
+        return back()->with('message', 'An ep was deleted!');
+    }
+
+    // Showing form to update an ep
+    public function epEdit(Anime $anime, Ep $ep) {
+        return view('controlPanel.editEp', ['ep' => $ep, 'anime' => $anime]);
+    }
+
+    // Updating an ep
+    public function epUpdate(Request $request, Anime $anime, Ep $ep) {
+
+        return $request;
     }
 
 }
