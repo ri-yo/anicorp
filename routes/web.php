@@ -29,8 +29,17 @@ Route::get('/anime/{anime}/ep/{ep}', [AnimesController::class, 'watch']);
 // Showing LogIn page
 Route::get('/login', [UserController::class, 'login']);
 
+// Authenticating an user
+Route::post('/login/authenticate', [UserController::class, 'authenticate']);
+
+// Logging an user out
+Route::post('/logout', [UserController::class, 'logout']);
+
 // Showing Register page
 Route::get('/register', [UserController::class, 'register']);
+
+// Registering a new user
+Route::post('/register/authenticate', [UserController::class, 'store']);
 
 // CONTROL PANEL AUTHENTICATION SYSTEM      
 Route::get('/controlpanel', [ControlPanel::class, 'login'])->name('login')->middleware('guest');
@@ -78,5 +87,5 @@ Route::put('/controlpanel/putmethod/update/epupdate/{anime}/{ep}', [ControlPanel
 
 /*
 Route::get('/drop', function () {
-    Schema::dropIfExists('animes');
+    Schema::dropIfExists('users');
 });*/

@@ -23,11 +23,15 @@
                 </div>
     
                 <div>
-                    <form action="">
+                    <form action="/login/authenticate" method="POST">
+                        @csrf
+                        @error('email')
+                        <p class=" text-red-600">{{ $message }}</p>
+                        @enderror
                         <div>
                             <input type="text" name="email" placeholder="Your email" class=" w-full h-[50px] outline-none bg-gray-100 hover:bg-gray-200 focus:border-[2px] focus:border-black rounded pl-2 mb-2">
                         </div>
-                        
+
                         <div>
                             <input type="password" name="password" placeholder="Your password" class=" w-full h-[50px] outline-none bg-gray-100 hover:bg-gray-200 focus:border-[2px] focus:border-black rounded pl-2 mb-2">
                         </div>

@@ -20,16 +20,26 @@
                 </div>
     
                 <div>
-                    <form action="">
+                    <form action="/register/authenticate" method="POST">
+                        @csrf
                         <div>
+                            @error('name')
+                            <p class=" text-red-600">{{ $message }}</p>
+                            @enderror
                             <input type="text" name="name" placeholder="Your name" class=" w-full h-[50px] outline-none bg-gray-100 hover:bg-gray-200 focus:border-[2px] focus:border-black rounded pl-2 mb-2">
                         </div>
 
                         <div>
+                            @error('email')
+                            <p class=" text-red-600">{{ $message }}</p>
+                            @enderror
                             <input type="text" name="email" placeholder="Your email" class=" w-full h-[50px] outline-none bg-gray-100 hover:bg-gray-200 focus:border-[2px] focus:border-black rounded pl-2 mb-2">
                         </div>
                         
                         <div>
+                            @error('password')
+                            <p class=" text-red-600">{{ $message }}</p>
+                            @enderror
                             <input type="password" name="password" placeholder="Your password" class=" w-full h-[50px] outline-none bg-gray-100 hover:bg-gray-200 focus:border-[2px] focus:border-black rounded pl-2 mb-2">
                         </div>
 

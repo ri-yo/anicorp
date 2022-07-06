@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Anime;
 use App\Models\Ep;
+use App\Models\User;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -41,6 +42,12 @@ class ControlPanel extends Controller
             'email' => ['required','email'],
             'password' => ['required']
         ]);
+        $user = User::where('email', $secureInfo['email'])->get();
+
+        if($user[0]->admin == False) {
+            return back()->with('message', 'Only admins can login!');
+        }
+ 
 
         if(auth()->attempt($secureInfo, $request['remember'])){
             $request->session()->regenerate();
