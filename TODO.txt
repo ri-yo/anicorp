@@ -1,0 +1,1 @@
+The previous and next anime cant't be done because it was using the id as a filter but now its using the actual ep

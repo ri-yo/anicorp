@@ -15,7 +15,7 @@
 
             <div class=" inline-block mt-16 w-full max-w-[350px] bg-white rounded p-8 lg:p-0 lg:mt-0 ">
                 <div class=" mb-4 lg:mb-14 max-w-[70px]">
-                    <a href="/"><img src="{{ asset('/images/logo.png') }}" alt="Logo" class=" rounded-full w-[70px] h-[70px] object-contain"></a>
+                    <a href="/"><img src="{{ asset('/images/logo.jpg') }}" alt="Logo" class=" rounded-full w-[70px] h-[70px] object-contain"></a>
                 </div>
     
                 <div class=" mb-2 lg:mb-8">
