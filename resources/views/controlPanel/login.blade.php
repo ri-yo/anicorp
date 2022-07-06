@@ -9,7 +9,6 @@
 </head>
 <body class=" overflow-hidden">
     <main class=" lg:flex text-center lg:text-left">
-
         <!--Login form section-->
         <section class=" inline-block lg:w-[30%] lg:pt-12 lg:px-14 w-full h-screen lg:bg-none bg-[url('/images/anime-controlpanelloginpage.jpg')] bg-cover bg-left px-2">
 
