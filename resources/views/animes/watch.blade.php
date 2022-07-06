@@ -30,26 +30,45 @@
         <!--Anime watching screen-->
         <div class=" w-full h-[520px] ">
         <!--Screen inside here-->
-        <iframe class="w-full h-full" src="https://www.youtube.com/embed/xU47nhruN-Q?modestbranding=1&showinfo=0&rel=0&modestbranding=1&autoplay=1&autohide=1" title="Your Name - Trailer [English Subtitled]" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        
+        {!! $watch !!}
+
+        <!--
+        <iframe class="w-full h-full" src="https://www.youtube.com/embed/xU47nhruN-Q?modestbranding=1&showinfo=0&rel=0&modestbranding=1&autoplay=1&autohide=1" title="Your Name - Trailer [English Subtitled]" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe>-->
         </div>
 
         <!--bellow buttons-->
         <div class=" w-full h-[70px] px-12 flex justify-between items-center">
+
+            @if($previousEp == null)
+            <div class=" text-center max-w-[115px] rounded  bg-white max-h-[40px] opacity-50 cursor-pointer">
+                <p class=" block  py-2 px-4"><i class="fa-solid fa-arrow-left"></i> Previous</p>
+            </div>
+            @else
             <!--Previous-->
             <div class=" text-center max-w-[115px] rounded  bg-white max-h-[40px]">
                 <a href="/anime/{{ $anime->id }}/ep/{{ $previousEp }}" class=" block  py-2 px-4"><i class="fa-solid fa-arrow-left"></i> Previous</a>
             </div>
+            @endif
 
             <!--Anime info-->
             <div class=" text-center">
                 <p class=" text-white font-bold">{{ $anime->name }}</p>
-                <p class=" text-white text-[12px]">{{ $currentEp->id }} - {{ $currentEp->name }}</p>
+                <p class=" text-white text-[12px]">{{ $currentEp->ep }} - {{ $currentEp->name }}</p>
             </div>
 
             <!--Previous-->
-            <div class=" text-center max-w-[115px] max-h-[40px] rounded  bg-white">
-                <a href="/anime/{{ $anime->id }}/ep/{{ $nextEp[0]->id }}" class=" block  py-2 px-4"><i class="fa-solid fa-arrow-right"></i> Next Ep</a>
+            @if($nextEp == null)
+            <div class=" text-center max-w-[115px] max-h-[40px] rounded  bg-white opacity-50">
+                <p class=" block  py-2 px-4 cursor-pointer"><i class="fa-solid fa-arrow-right"></i> Next Ep</p>
             </div>
+            @else
+            <div class=" text-center max-w-[115px] max-h-[40px] rounded  bg-white">
+                <a href="/anime/{{ $anime->id }}/ep/{{ $nextEp }}" class=" block  py-2 px-4"><i class="fa-solid fa-arrow-right"></i> Next Ep</a>
+            </div>
+            @endif
+            
 
         </div>
     </main>

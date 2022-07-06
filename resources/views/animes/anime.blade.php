@@ -24,7 +24,7 @@
                 <!--Single Ep-->
                 <div class=" w-full border-b-[1px] border-black rounded p-2 hover:bg-gray-200 transition">
                     <a href="/anime/{{ $anime->id }}/ep/{{ $ep->id }}" class=" w-full block">
-                        <span>{{ $ep->id }}</span>
+                        <span>{{ $ep->ep }}</span>
                         <span> - </span>
                         <span>{{ $ep->name }}</span>
                     </a>

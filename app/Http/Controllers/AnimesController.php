@@ -20,10 +20,18 @@ class AnimesController extends Controller
 
     // Watch an anime
     public function watch(Anime $anime, Ep $ep) {
-        $currentEp = $ep->id;
-        $previousEp = Ep::where('anime_id', $anime->id)->where('id', '<', $currentEp)->max('id');
-        $nextEp = Ep::where('anime_id', $anime->id)->where('id', '>', $currentEp)->limit(1)->get();
+        $currentEp = $ep->ep;
+        $previousEp = Ep::where('anime_id', $anime->id)->where('ep', '<', $currentEp)->max('id');
+        $nextEp = Ep::where('anime_id', $anime->id)->where('ep', '>', $currentEp)->min('id');
 
-        return view('animes.watch', ['anime' => $anime,'currentEp' => $ep,'previousEp' => $previousEp,'nextEp' => $nextEp]);
+        // Preparing iframe to be watched
+
+        // class="w-full h-full"
+        $embedCode = $ep->watch;
+        $watch = substr_replace($embedCode, "class='w-full h-full'", 8, 24);
+
+        // return htmlspecialchars($watch);
+
+        return view('animes.watch', ['anime' => $anime,'currentEp' => $ep,'previousEp' => $previousEp,'nextEp' => $nextEp, 'watch' => $watch]);
     }
 }

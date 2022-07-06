@@ -20,7 +20,7 @@
                 </div>
     
                 <div>
-                    <form action="/controlpanel/putmethod/update/epupdate/{{ $anime->id }}/{{ $ep->ep }}" method="POST">
+                    <form action="/controlpanel/putmethod/update/epupdate/{{ $anime->id }}/{{ $ep->id }}" method="POST">
                         @csrf
                         @method('put')
                         <div>

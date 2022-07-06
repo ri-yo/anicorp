@@ -148,8 +148,15 @@ class ControlPanel extends Controller
 
     // Updating an ep
     public function epUpdate(Request $request, Anime $anime, Ep $ep) {
+        $secureInfo = $request->validate([
+            'name' => ['required'],
+            'ep' => ['required'],
+            'watch' => ['required']
+        ]);
 
-        return $request;
+        $ep->update($secureInfo);
+
+        return back()->with('message', 'This ep was updated successfully!');
     }
 
 }
