@@ -29,6 +29,12 @@ Route::get('/anime/{anime}/ep/{ep}', [AnimesController::class, 'watch']);
 // Showing LogIn page
 Route::get('/login', [UserController::class, 'login']);
 
+// Authenticating an user
+Route::post('/login/authenticate', [UserController::class, 'authenticate']);
+
+// Logging an user out
+Route::post('/logout', [UserController::class, 'logout']);
+
 // Showing Register page
 Route::get('/register', [UserController::class, 'register']);
 

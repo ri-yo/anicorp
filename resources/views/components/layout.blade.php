@@ -48,7 +48,7 @@
         </div>
 
         <!--Header Items-->
-        <div class=" flex">
+        <div class=" flex items-center">
             <!--Movile menu button-->
             <div class=" closeMenuButton hidden cursor-pointer"><i class="fa-solid fa-close"></i></div>
             <div class=" openMenuButton md:hidden cursor-pointer"><i class="fa-solid fa-bars"></i></div>
@@ -56,7 +56,15 @@
             <div class=" closeSearch pl-2 cursor-pointer hidden"><i class="fa-solid fa-close"></i></div>
             <div class=" openSearch pl-2 cursor-pointer"><i class="fa-solid fa-magnifying-glass"></i></div>
 
+            @auth
+            <form action="/logout" method="POST">
+                @csrf
+                <button class=" text-white font-bold px-4 py-2 ml-2 bg-red-400 rounded">LogOut</button>
+            </form>
+            @else
             <div><a href="/login" class=" text-white font-bold px-4 py-2 ml-2 bg-green-400 rounded">LogIn</a></div>
+            @endauth
+            
         </div>
     </header>
 
