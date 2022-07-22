@@ -1,5 +1,22 @@
 <x-layout>
     <main class=" bg-black">
+        <!--Checking if there are animes to show-->
+        @if(count($animes) <= 0 )
+        <section>
+            <div class=" container mx-auto pt-8">
+                <h1 class=" text-white text-2xl border-b-[1px]">Sorry, no animes yet</h1>
+            </div>
+
+            <div class=" container mx-auto pt-8">
+                <p class=" text-white">
+                    Read the <span class=" font-bold">README.md</span> file to learn how to add animes!
+                </p>
+            </div>
+
+        </section>
+
+        @else
+
         <!--Only show this section if there is no search being made-->
         @if(request('search') == null)
             <!--Main anime screen-->
@@ -90,7 +107,7 @@
         @if(request('search') !== null)
         <section>
             <div class=" container mx-auto pt-8">
-                <h1 class=" text-white text-2xl border-b-[1px] mb-4">Results for {{ request('search') }}</h1>
+                <h1 class=" text-white text-2xl border-b-[1px]">Results for {{ request('search') }}</h1>
 
                 <!--Anime cards-->
                 <div class=" text-center">
@@ -111,6 +128,9 @@
                 </div>
             </div>
         </section>
+
+        @endif
+
         @endif
     </main>
 </x-layout>
