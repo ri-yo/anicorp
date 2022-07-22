@@ -863,14 +863,14 @@ video {
 .pt-12 {
   padding-top: 3rem;
 }
+.pt-8 {
+  padding-top: 2rem;
+}
 .pt-14 {
   padding-top: 3.5rem;
 }
 .pb-12 {
   padding-bottom: 3rem;
-}
-.pt-8 {
-  padding-top: 2rem;
 }
 .pl-2 {
   padding-left: 0.5rem;
@@ -888,13 +888,13 @@ video {
   font-size: 2.25rem;
   line-height: 2.5rem;
 }
-.text-5xl {
-  font-size: 3rem;
-  line-height: 1;
-}
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
+}
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
 }
 .text-lg {
   font-size: 1.125rem;
