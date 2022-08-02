@@ -20,7 +20,7 @@
                 </div>
     
                 <div>
-                    <form action="/controlpanel/animes/new/store" method="POST" enctype="multipart/form-data">
+                    <form action="/manage/animes/new/store" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div>
                             @error('name')
@@ -79,7 +79,7 @@
         <section class=" hidden lg:w-[70%] lg:block" >
             <div class=" w-full h-screen bg-[url('/images/anime-newanimepage.jpg')] bg-cover bg-left">
                 <div class=" w-full text-right p-4">
-                    <a href="/controlpanel/animes" class=" transition duration-300 hover:bg-red-600 hover:text-white bg-white text-[20px] rounded font-bold px-4 py-2 shadow"><i class="fa-solid fa-close"></i></a>
+                    <a href="/manage/animes" class=" transition duration-300 hover:bg-red-600 hover:text-white bg-white text-[20px] rounded font-bold px-4 py-2 shadow"><i class="fa-solid fa-close"></i></a>
                 </div>
             </div>
         </section>

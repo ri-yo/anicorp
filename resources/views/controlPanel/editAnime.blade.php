@@ -20,7 +20,7 @@
                 </div>
     
                 <div>
-                    <form action="/controlpanel/animeupdate/{{ $anime->id }}" method="POST" enctype="multipart/form-data">
+                    <form action="/manage/animes/update/{{ $anime->id }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('put')
                         <div>

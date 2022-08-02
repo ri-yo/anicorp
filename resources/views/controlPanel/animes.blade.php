@@ -13,15 +13,15 @@
     <header class=" container mx-auto bg-white flex items-center justify-between py-1 px-2">
         <!--Logo-->
         <div>
-            <a href=""><img src="{{ asset('images/logo.jpg') }}" alt="Logo" class=" w-12 h-12 rounded-full object-cover" ></a>
+            <a href="/"><img src="{{ asset('images/logo.jpg') }}" alt="Logo" class=" w-12 h-12 rounded-full object-cover" ></a>
         </div>
 
         <!--Desktop NavBar-->
         <div class=" hidden md:block">
             <nav>
                 <ul class=" flex">
-                    <li class=" md:mr-12 sm:mr-8"><a href="/controlpanel/home">Home</a></li>
-                    <li class=" md:mr-12 sm:mr-8"><a href="/controlpanel/animes">Animes</a></li>
+                    <li class=" md:mr-12 sm:mr-8"><a href="/manage">Home</a></li>
+                    <li class=" md:mr-12 sm:mr-8"><a href="/manage/animes">Animes</a></li>
                 </ul>
             </nav>
         </div>
@@ -46,7 +46,7 @@
         </div>
 
         <!--Header Items-->
-        <div class=" flex">
+        <div class=" flex items-center">
             <!--Movile menu button-->
             <div class=" closeMenuButton hidden cursor-pointer"><i class="fa-solid fa-close"></i></div>
             <div class=" openMenuButton md:hidden cursor-pointer"><i class="fa-solid fa-bars"></i></div>
@@ -55,7 +55,7 @@
             <div class=" openSearch pl-2 cursor-pointer"><i class="fa-solid fa-magnifying-glass"></i></div>
 
             <div>
-                <form action="/controlpanel/logout" method="POST">
+                <form action="/logout" method="POST">
                     @csrf
                     @method('post')
                     <button class=" text-white px-2 py-2 ml-2 bg-red-400 rounded">LogOut</button>
@@ -71,7 +71,7 @@
             <div class=" p-4">
                 <!--Animes button-->
                 <div class=" w-full max-w-[120px] text-center bg-green-400 rounded">
-                    <a href="/controlpanel/animes/new" class=" block py-[15px] text-white text-[17px]">
+                    <a href="/manage/animes/new" class=" block py-[15px] text-white text-[17px]">
                         New anime
                     </a>
                 </div>
@@ -93,9 +93,9 @@
                         </div>
                         
                         <div class=" flex items-center">
-                            <a href="/controlpanel/{{ $anime->id }}/eps" class=" mr-2 px-4 text-white bg-green-400 rounded"><i class="fa-solid fa-circle-plus"></i> Eps</a>
-                            <a href="/controlpanel/edit/anime/{{ $anime->id }}" class=" mr-2 px-4 text-white bg-blue-400 rounded"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
-                            <form action="/controlpanel/delete/{{ $anime->id }}" method="POST">
+                            <a href="/manage/animes/eps/{{ $anime->id }}" class=" mr-2 px-4 text-white bg-green-400 rounded"><i class="fa-solid fa-circle-plus"></i> Eps</a>
+                            <a href="/manage/animes/edit/{{ $anime->id }}" class=" mr-2 px-4 text-white bg-blue-400 rounded"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
+                            <form action="/manage/animes/delete/{{ $anime->id }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button class=" mr-2 px-4 bg-red-400 text-white rounded " type="submit">Delete</button>

@@ -22,5 +22,11 @@
 * php artisan storage:link
 * php artisan serve
 
+## Admin accounts 
+* Run: php artisan migrate --seed on your terminal
+* Email: **admin@gmail.com**
+* Password: **password**
+* Now, LogIn and enjoy :)
+
 ## Version
 **0.1.0**

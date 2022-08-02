@@ -71,7 +71,7 @@
             <div class=" p-4">
                 <!--Animes button-->
                 <div class=" w-full max-w-[120px] text-center bg-green-400 rounded">
-                    <a href="/controlpanel/{{ $anime->id }}/eps/new" class=" block py-[15px] text-white text-[17px]">
+                    <a href="/manage/animes/eps/{{ $anime->id }}/new" class=" block py-[15px] text-white text-[17px]">
                         New Ep
                     </a>
                 </div>
@@ -95,8 +95,8 @@
                         </div>
                         
                         <div class=" flex items-center">
-                            <a href="/controlpanel/epupdate/{{ $anime->id }}/{{ $ep->id }}" class=" mr-2 px-4 text-white bg-blue-400 rounded"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
-                            <form action="/controlpanel/delete/{{ $anime->id }}/{{ $ep->id }}" method="POST">
+                            <a href="/manage/animes/eps/{{ $anime->id }}/{{ $ep->id }}/edit" class=" mr-2 px-4 text-white bg-blue-400 rounded"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
+                            <form action="/manage/animes/eps/{{ $anime->id }}/{{ $ep->id }}/delete" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button class=" mr-2 px-4 bg-red-400 text-white rounded " type="submit">Delete</button>

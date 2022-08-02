@@ -41,7 +41,7 @@ class UserController extends Controller
     public function logout(Request $request) {
         $request->session()->invalidate();
         auth()->logout();
-        return back()->with('message', 'You are logged out!');
+        return redirect('/')->with('message', 'You are logged out!');
     }
 
     // Storing a new user
