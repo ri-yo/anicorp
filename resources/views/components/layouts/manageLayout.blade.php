@@ -6,22 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/libs/splide.min.css') }}">
-    <title>Anicorp</title>
+    <title>Anicorp - Manage</title>
 </head>
 <body class=" overflow-x-hidden">
+
     <!--Header-->
     <header class=" container mx-auto bg-white flex items-center justify-between py-1 px-2">
         <!--Logo-->
         <div>
-            <a href=""><img src="{{ asset('images/logo.jpg') }}" alt="Logo" class=" w-12 h-12 rounded-full object-cover" ></a>
+            <a href="/"><img src="{{ asset('images/logo.jpg') }}" alt="Logo" class=" w-12 h-12 rounded-full object-cover" ></a>
         </div>
 
         <!--Desktop NavBar-->
         <div class=" hidden md:block">
             <nav>
                 <ul class=" flex">
-                    <li class=" md:mr-12 sm:mr-8"><a href="/controlpanel/home">Home</a></li>
-                    <li class=" md:mr-12 sm:mr-8"><a href="/controlpanel/animes">Animes</a></li>
+                    <li class=" md:mr-12 sm:mr-8"><a href="/manage">Home</a></li>
+                    <li class=" md:mr-12 sm:mr-8"><a href="/manage/animes">Animes</a></li>
                 </ul>
             </nav>
         </div>
@@ -46,7 +47,7 @@
         </div>
 
         <!--Header Items-->
-        <div class=" flex">
+        <div class=" flex items-center">
             <!--Movile menu button-->
             <div class=" closeMenuButton hidden cursor-pointer"><i class="fa-solid fa-close"></i></div>
             <div class=" openMenuButton md:hidden cursor-pointer"><i class="fa-solid fa-bars"></i></div>
@@ -55,7 +56,7 @@
             <div class=" openSearch pl-2 cursor-pointer"><i class="fa-solid fa-magnifying-glass"></i></div>
 
             <div>
-                <form action="/controlpanel/logout" method="POST">
+                <form action="/logout" method="POST">
                     @csrf
                     @method('post')
                     <button class=" text-white px-2 py-2 ml-2 bg-red-400 rounded">LogOut</button>
@@ -64,54 +65,9 @@
         </div>
     </header>
 
-    <main class=" lass=" h-60 BgCustomCss" style="background-image: linear-gradient(to bottom, transparent, #000000), url('/images/manga.jpg');"">
-
-        <!--Animes options-->
-        <section>
-            <div class=" p-4">
-                <!--Animes button-->
-                <div class=" w-full max-w-[120px] text-center bg-green-400 rounded">
-                    <a href="/controlpanel/animes/new" class=" block py-[15px] text-white text-[17px]">
-                        New anime
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <!--Animes list-->
-            <div class=" bg-white rounded mx-4 p-4 transition">
-                @foreach($animes as $key => $anime)
-                    <!--Single anime from list-->
-                <div class=" w-full hover:bg-gray-200 mb-2 flex justify-between">
-                    <a href="/anime/{{ $anime->id }}" target="_blank" class=" block">
-                        <div>
-                            <img src="{{ asset('/storage/'.$anime->animeCover) }}" alt="Anime Cover" class=" w-[60px] h-[60px] object-cover rounded-xl inline-block">
-                            <span>{{ $anime->name }}</span>
-                            <span> / </span>
-                            <span>Dubbed/Subtitled</span>
-                        </div>
-                        
-                        <div class=" flex items-center">
-                            <a href="/controlpanel/{{ $anime->id }}/eps" class=" mr-2 px-4 text-white bg-green-400 rounded"><i class="fa-solid fa-circle-plus"></i> Eps</a>
-                            <a href="/controlpanel/edit/anime/{{ $anime->id }}" class=" mr-2 px-4 text-white bg-blue-400 rounded"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
-                            <form action="/controlpanel/delete/{{ $anime->id }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button class=" mr-2 px-4 bg-red-400 text-white rounded " type="submit">Delete</button>
-                            </form>
-                        </div>
-                    </a>
-                </div>
-                @endforeach
-
-                
-
-                
-            </div>
-        </section>
-
-    </main>
+    <!--Slot variable-->
+    {{ $slot }}
+    <!--Slot variable-->
 
     <!--Footer-->
     <footer class=" h-60 BgCustomCss" style="background-image: linear-gradient(to top, transparent, #000000), url('/images/manga.jpg');">

@@ -1,4 +1,4 @@
-<x-layout>
+<x-layouts.standartLayout>
     <main class=" bg-black">
         <section>
             <div class=" h-auto w-full BgCustomCss pt-12" style="background-image: linear-gradient(to bottom, transparent, #000000), url('/storage/{{ $anime->animeBackground }}');">
@@ -35,4 +35,4 @@
 
         </section>
     </main>
-</x-layout>
+</x-layouts.standartLayout>

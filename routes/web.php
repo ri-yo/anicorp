@@ -1,10 +1,10 @@
 <?php
 
-use App\Http\Controllers\AnimesController;
-use App\Http\Controllers\ControlPanel;
+use App\Http\Controllers\AnimeController;
+use App\Http\Controllers\ManageController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Schema;
+use App\Http\Controllers\EpController; 
 
 /*
 |--------------------------------------------------------------------------
@@ -17,75 +17,48 @@ use Illuminate\Support\Facades\Schema;
 |
 */
 
-// Showing Home page
-Route::get('/', [AnimesController::class, 'animes']);
+// GET ROUTES
 
-// Showing Single Anime page
-Route::get('/anime/{anime}', [AnimesController::class, 'anime']);
+/*Home page*/       Route::get('/', [AnimeController::class, 'showAll']);
 
-// Watch anime
-Route::get('/anime/{anime}/ep/{ep}', [AnimesController::class, 'watch']);
+/*Anime page*/      Route::get('/anime/{anime}', [AnimeController::class, 'showSingle']);
 
-// Showing LogIn page
-Route::get('/login', [UserController::class, 'login']);
+/*Watch page*/      Route::get('/anime/{anime}/ep/{ep}', [AnimeController::class, 'watch']);
 
-// Authenticating an user
-Route::post('/login/authenticate', [UserController::class, 'authenticate']);
+/*LogIn page*/      Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
 
-// Logging an user out
-Route::post('/logout', [UserController::class, 'logout']);
+/*Register page*/   Route::get('/register', [UserController::class, 'register'])->middleware('guest'); 
 
-// Showing Register page
-Route::get('/register', [UserController::class, 'register']);
+/*Manage page*/     Route::get('/manage', [ManageController::class, 'home'])->middleware('auth')->middleware('admin');
 
-// Registering a new user
-Route::post('/register/authenticate', [UserController::class, 'store']);
+/*Animes page*/     Route::get('/manage/animes', [ManageController::class, 'animes'])->middleware('auth')->middleware('admin');
 
-// CONTROL PANEL AUTHENTICATION SYSTEM      
-Route::get('/controlpanel', [ControlPanel::class, 'login'])->name('login')->middleware('guest');
-Route::post('/controlpanel/login/authenticate', [ControlPanel::class, 'authenticate'])->middleware('guest');
-Route::post('/controlpanel/logout', [ControlPanel::class, 'logout'])->middleware('auth');
+/*NewAnime page*/   Route::get('/manage/animes/new', [AnimeController::class, 'new'])->middleware('auth')->middleware('admin');
 
-// Showing CONTROL PANEL home page
-Route::get('/controlpanel/home', [ControlPanel::class, 'home'])->middleware('auth');
+/*EditAnime page*/  Route::get('/manage/animes/edit/{anime}', [AnimeController::class, 'edit'])->middleware('auth')->middleware('admin');
 
-// Showing CONTROL PANEL animes page
-Route::get('/controlpanel/animes', [ControlPanel::class, 'animes'])->middleware('auth');
+/*Eps page*/        Route::get('/manage/animes/eps/{anime}', [ManageController::class, 'eps'])->middleware('admin');
 
-// CONTROL PANEL ANIMES SYSTEM
-// Showing CONTROL PANEL new anime page
-Route::get('/controlpanel/animes/new', [ControlPanel::class, 'newAnime'])->middleware('auth');
-// Storing new anime
-Route::post('/controlpanel/animes/new/store', [ControlPanel::class, 'animeStore']);
+/*NewEp page*/      Route::get('/manage/animes/eps/{anime}/new', [EpController::class, 'new'])->middleware('admin');
 
-// Showing CONTROL PANEL edit anime page
-Route::get('/controlpanel/edit/anime/{anime}', [ControlPanel::class, 'animeEdit'])->middleware('auth');
+/*EditEp page*/     Route::get('/manage/animes/eps/{anime}/{ep}/edit', [EpController::class, 'edit'])->middleware('admin');
 
-// EDITTING an anime
-Route::put('/controlpanel/animeupdate/{anime}', [ControlPanel::class, 'animeUpdate']);
+// GET ROUTES
 
-// DELETING an anime
-Route::delete('/controlpanel/delete/{anime}', [ControlPanel::class, 'animeDelete']);
+// POST ROUTES
+Route::post('/login/authenticate', [UserController::class, 'authenticate'])->middleware('guest'); // Authenticating an user
+Route::post('/logout', [UserController::class, 'logout'])->middleware('auth'); // Logging an user out
+Route::post('/register/store', [UserController::class, 'store'])->middleware('guest'); // Registering a new user
+Route::post('/manage/animes/new/store', [AnimeController::class, 'store'])->middleware('admin'); // Storing new anime
+Route::post('/manage/animes/eps/{anime}/new/store', [EpController::class, 'store'])->middleware('admin'); // Storing a new ep
+// POST ROUTES
 
-// Showing page to control EPS
-Route::get('/controlpanel/{anime}/eps', [ControlPanel::class, 'eps']);
+// PUT ROUTES
+Route::put('/manage/animes/update/{anime}', [AnimeController::class, 'update'])->middleware('admin'); // EDITTING an anime
+Route::put('/manage/animes/eps/{anime}/{ep}/update', [EpController::class, 'update'])->middleware('admin'); // Updating an ep
+// PUT ROUTES
 
-// Showing form to add new eps
-Route::get('/controlpanel/{anime}/eps/new', [ControlPanel::class, 'newEp']);
-
-// Storing a new ep
-Route::post('/controlpanel/{anime}/eps/new/store', [ControlPanel::class, 'storeEp']);
-
-// Deleting an ep
-Route::delete('/controlpanel/delete/{anime}/{ep}', [ControlPanel::class, 'deleteEp']);
-
-// Showing form to update an ep
-Route::get('/controlpanel/epupdate/{anime}/{ep}', [ControlPanel::class, 'epEdit']);
-
-// Updating an ep
-Route::put('/controlpanel/putmethod/update/epupdate/{anime}/{ep}', [ControlPanel::class, 'epUpdate']);
-
-/*
-Route::get('/drop', function () {
-    Schema::dropIfExists('users');
-});*/
+// DELETE ROUTES
+Route::delete('/manage/animes/delete/{anime}', [AnimeController::class, 'delete'])->middleware('admin'); // DELETING an anime
+Route::delete('/manage/animes/eps/{anime}/{ep}/delete', [EpController::class, 'delete'])->middleware('admin'); // Deleting an ep
+// DELETE ROUTES
