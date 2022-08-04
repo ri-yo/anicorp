@@ -16,40 +16,32 @@
             <div class=" inline-block mt-8 w-full max-w-[350px] bg-white rounded p-8 lg:p-0 lg:mt-0 ">
     
                 <div class=" mb-2 lg:mb-4">
-                    <h1 class=" font-bold text-[25px]">New anime</h1>
+                    <h1 class=" font-bold text-[25px]">Edit ep</h1>
                 </div>
     
                 <div>
-                    <form action="/controlpanel/animes/new/store" method="POST" enctype="multipart/form-data">
+                    <form action="/manage/animes/eps/{{ $anime->id }}/{{ $ep->id }}/update" method="POST">
                         @csrf
+                        @method('put')
                         <div>
                             @error('name')
                                 <p class=" text-xs text-red-500">{{ $message }}</p>
                             @enderror
-                            <input type="text" name="name" placeholder="Name" class=" w-full h-[50px] outline-none bg-gray-100 hover:bg-gray-200 focus:border-[2px] focus:border-black rounded pl-2 mb-2">
+                            <input type="text" name="name" placeholder="Ep Name" value="{{ $ep->name }}" class=" w-full h-[50px] outline-none bg-gray-100 hover:bg-gray-200 focus:border-[2px] focus:border-black rounded pl-2 mb-2">
                         </div>
-                        
+
                         <div>
-                            @error('description')
+                            @error('ep')
                                 <p class=" text-xs text-red-500">{{ $message }}</p>
                             @enderror
-                            <textarea name="description" placeholder="Description" class=" w-full h-[50px] outline-none bg-gray-100 hover:bg-gray-200 focus:border-[2px] focus:border-black rounded pl-2 mb-2 resize-none" ></textarea>
+                            <input type="number" name="ep" placeholder="Ep Number" value="{{ $ep->ep }}" class=" w-full h-[50px] outline-none bg-gray-100 hover:bg-gray-200 focus:border-[2px] focus:border-black rounded pl-2 mb-2">
                         </div>
 
-                        <div class=" border-[1px] border-black rounded p-2 mb-2">
-                            @error('animeCover')
+                        <div>
+                            @error('watch')
                                 <p class=" text-xs text-red-500">{{ $message }}</p>
                             @enderror
-                            <p>Anime cover image</p>
-                            <input type="file" name="animeCover" class="w-full py-[10px] outline-none bg-gray-100 hover:bg-gray-200 focus:border-[2px] focus:border-black rounded pl-2 mb-2">
-                        </div>
-
-                        <div class=" border-[1px] border-black rounded p-2">
-                            @error('animeBackground')
-                                <p class=" text-xs text-red-500">{{ $message }}</p>
-                            @enderror
-                            <p>Anime's background image</p>
-                            <input type="file" name="animeBackground" class="w-full py-[10px] outline-none bg-gray-100 hover:bg-gray-200 focus:border-[2px] focus:border-black rounded pl-2 mb-2">
+                            <textarea name="watch" placeholder="Iframe link" class=" w-full h-[50px] outline-none bg-gray-100 hover:bg-gray-200 focus:border-[2px] focus:border-black rounded pl-2 mb-2 resize-none" >{{ $ep->watch }}</textarea>
                         </div>
                         
                         <div class=" mb-4 lg:mb-12">
@@ -57,7 +49,7 @@
                                 <p class=" text-xs text-red-500">{{ $message }}</p>
                             @enderror
                             <input type="checkbox" name="confirmation" value="1" class=" w-[17px] h-[17px]">
-                            <span>I'm sure these images will fit perfectly for their purpose!</span>
+                            <span>I'm sure this Ep is currently up and running!</span>
                         </div>
                         
                         <div class=" text-center lg:mb-12 mb-8">
@@ -79,7 +71,7 @@
         <section class=" hidden lg:w-[70%] lg:block" >
             <div class=" w-full h-screen bg-[url('/images/anime-newanimepage.jpg')] bg-cover bg-left">
                 <div class=" w-full text-right p-4">
-                    <a href="/controlpanel/animes" class=" transition duration-300 hover:bg-red-600 hover:text-white bg-white text-[20px] rounded font-bold px-4 py-2 shadow"><i class="fa-solid fa-close"></i></a>
+                    <a href="/manage/animes/eps/{{ $anime->id }}" class=" transition duration-300 hover:bg-red-600 hover:text-white bg-white text-[20px] rounded font-bold px-4 py-2 shadow"><i class="fa-solid fa-close"></i></a>
                 </div>
             </div>
         </section>

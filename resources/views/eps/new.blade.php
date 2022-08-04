@@ -16,32 +16,31 @@
             <div class=" inline-block mt-8 w-full max-w-[350px] bg-white rounded p-8 lg:p-0 lg:mt-0 ">
     
                 <div class=" mb-2 lg:mb-4">
-                    <h1 class=" font-bold text-[25px]">Edit ep</h1>
+                    <h1 class=" font-bold text-[25px]">New ep</h1>
                 </div>
     
                 <div>
-                    <form action="/controlpanel/putmethod/update/epupdate/{{ $anime->id }}/{{ $ep->id }}" method="POST">
+                    <form action="/manage/animes/eps/{{ $anime->id }}/new/store" method="POST">
                         @csrf
-                        @method('put')
                         <div>
                             @error('name')
                                 <p class=" text-xs text-red-500">{{ $message }}</p>
                             @enderror
-                            <input type="text" name="name" placeholder="Ep Name" value="{{ $ep->name }}" class=" w-full h-[50px] outline-none bg-gray-100 hover:bg-gray-200 focus:border-[2px] focus:border-black rounded pl-2 mb-2">
+                            <input type="text" name="name" placeholder="Ep Name" class=" w-full h-[50px] outline-none bg-gray-100 hover:bg-gray-200 focus:border-[2px] focus:border-black rounded pl-2 mb-2">
                         </div>
 
                         <div>
                             @error('ep')
                                 <p class=" text-xs text-red-500">{{ $message }}</p>
                             @enderror
-                            <input type="number" name="ep" placeholder="Ep Number" value="{{ $ep->ep }}" class=" w-full h-[50px] outline-none bg-gray-100 hover:bg-gray-200 focus:border-[2px] focus:border-black rounded pl-2 mb-2">
+                            <input type="number" name="ep" placeholder="Ep Number" class=" w-full h-[50px] outline-none bg-gray-100 hover:bg-gray-200 focus:border-[2px] focus:border-black rounded pl-2 mb-2">
                         </div>
 
                         <div>
                             @error('watch')
                                 <p class=" text-xs text-red-500">{{ $message }}</p>
                             @enderror
-                            <textarea name="watch" placeholder="Iframe link" class=" w-full h-[50px] outline-none bg-gray-100 hover:bg-gray-200 focus:border-[2px] focus:border-black rounded pl-2 mb-2 resize-none" >{{ $ep->watch }}</textarea>
+                            <textarea name="watch" placeholder="Iframe link" class=" w-full h-[50px] outline-none bg-gray-100 hover:bg-gray-200 focus:border-[2px] focus:border-black rounded pl-2 mb-2 resize-none" ></textarea>
                         </div>
                         
                         <div class=" mb-4 lg:mb-12">
@@ -71,7 +70,7 @@
         <section class=" hidden lg:w-[70%] lg:block" >
             <div class=" w-full h-screen bg-[url('/images/anime-newanimepage.jpg')] bg-cover bg-left">
                 <div class=" w-full text-right p-4">
-                    <a href="/controlpanel/animes" class=" transition duration-300 hover:bg-red-600 hover:text-white bg-white text-[20px] rounded font-bold px-4 py-2 shadow"><i class="fa-solid fa-close"></i></a>
+                    <a href="/manage/animes/eps/{{ $anime->id }}" class=" transition duration-300 hover:bg-red-600 hover:text-white bg-white text-[20px] rounded font-bold px-4 py-2 shadow"><i class="fa-solid fa-close"></i></a>
                 </div>
             </div>
         </section>

@@ -11,11 +11,22 @@
 * This project is still in development. Bugs are being fixed, new features are being developed, code improvement is being made.
 
 ## Run Steps
-* git clone https://github.com/agon-ny/full-rest-api.git
+**Follow these steps line to line to run the project!**
+* git clone https://github.com/agon-ny/anicorp.git
+* cd anicorp
 * composer install
+* mv .env.example .env
+* configure your database settings on **.env** file
+* php artisan key:generate
 * php artisan migrate:fresh
+* php artisan storage:link
 * php artisan serve
-* npm run watch
+
+## Admin accounts 
+* Run: php artisan migrate --seed on your terminal
+* Email: **admin@gmail.com**
+* Password: **password**
+* Now, LogIn and enjoy :)
 
 ## Version
-**0.1.0**
+**0.2.0**
