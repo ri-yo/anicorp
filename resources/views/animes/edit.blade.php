@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <title>Anicorp - Edit anime</title>
 </head>
-<body class=" overflow-hidden">
+<body class=" lg:overflow-hidden">
     <main class=" lg:flex text-center lg:text-left">
 
         <!--Login form section-->
-        <section class=" inline-block lg:w-[30%] lg:pt-2 lg:px-14 w-full h-screen lg:bg-none bg-[url('/images/anime-newanimepage.jpg')] bg-cover bg-left px-2">
+        <section class=" inline-block lg:w-[30%] lg:pt-2 lg:px-14 w-full h-full lg:bg-none bg-[url('/images/anime-newanimepage.jpg')] bg-cover bg-left px-2">
 
-            <div class=" inline-block mt-8 w-full max-w-[350px] bg-white rounded p-8 lg:p-0 lg:mt-0 ">
+            <div class=" inline-block mt-8 mb-8 w-full max-w-[350px] bg-white rounded p-8 lg:p-0 lg:mt-0 lg:mb-0 ">
     
                 <div class=" mb-2">
                     <h1 class=" font-bold text-[25px]">Edit anime</h1>
@@ -56,7 +56,6 @@
                 </div>
     
                 <div>
-                    <h3><a href="/register" class=" text-gray-400 transition hover:text-black hover:border-b-[1px] hover:border-black">ABOUT </a></h3>
                     <h3><a href="/cantsignin" class=" text-gray-400 transition hover:text-black hover:border-b-[1px] hover:border-black">CAN'T EDIT THE ANIME? </a></h3>
                 </div>
             </div>
@@ -67,7 +66,7 @@
         <section class=" hidden lg:w-[70%] lg:block" >
             <div class=" w-full h-screen bg-[url('/images/anime-newanimepage.jpg')] bg-cover bg-left">
                 <div class=" w-full text-right p-4">
-                    <a href="/controlpanel/animes" class=" transition duration-300 hover:bg-red-600 hover:text-white bg-white text-[20px] rounded font-bold px-4 py-2 shadow"><i class="fa-solid fa-close"></i></a>
+                    <a href="/manage/animes" class=" transition duration-300 hover:bg-red-600 hover:text-white bg-white text-[20px] rounded font-bold px-4 py-2 shadow"><i class="fa-solid fa-close"></i></a>
                 </div>
             </div>
         </section>

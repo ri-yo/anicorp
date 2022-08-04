@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/libs/splide.min.css') }}">
-    <title>Anicorp</title>
+    <title>Anicorp - Manage</title>
 </head>
 <body class=" overflow-x-hidden">
 
@@ -56,7 +56,7 @@
             <div class=" openSearch pl-2 cursor-pointer"><i class="fa-solid fa-magnifying-glass"></i></div>
 
             <div>
-                <form action="/controlpanel/logout" method="POST">
+                <form action="/logout" method="POST">
                     @csrf
                     @method('post')
                     <button class=" text-white px-2 py-2 ml-2 bg-red-400 rounded">LogOut</button>
@@ -64,6 +64,10 @@
             </div>
         </div>
     </header>
+
+    <!--Slot variable-->
+    {{ $slot }}
+    <!--Slot variable-->
 
     <!--Footer-->
     <footer class=" h-60 BgCustomCss" style="background-image: linear-gradient(to top, transparent, #000000), url('/images/manga.jpg');">

@@ -1,4 +1,4 @@
-<x-layout>
+<x-layouts.standartLayout>
     <main class=" bg-black">
         <!--Checking if there are animes to show-->
         @if(count($animes) <= 0 )
@@ -136,4 +136,4 @@
 
         @endif
     </main>
-</x-layout>
+</x-layouts.standartLayout>
