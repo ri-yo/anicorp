@@ -8,9 +8,12 @@
             </div>
 
             <div class=" container mx-auto pt-8">
-                <p class=" text-white">
-                    Read the <span class=" font-bold">README.md</span> file to learn how to add animes!
-                </p>
+                <div class=" text-white">
+                    <p>To create a new admin account run: <span class=" font-bold">php artisan migrate --seed</span> on your terminal</p>
+                    <p>Then login with these credentials:</p>
+                    <p class=" ml-8">Email: <span class=" font-bold">admin@gmail.com</span></p>
+                    <p class=" ml-8">Password: <span class=" font-bold">password</span></p>
+                </div>
             </div>
 
         </section>

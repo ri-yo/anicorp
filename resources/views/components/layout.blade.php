@@ -57,6 +57,9 @@
             <div class=" openSearch pl-2 cursor-pointer"><i class="fa-solid fa-magnifying-glass"></i></div>
 
             @auth
+            @if(Auth::user()->admin)
+            <div class=" text-white font-bold ml-2 bg-green-400 rounded"><a href="/manage" class=" block px-4 py-2">Manage</a></div>
+            @endif
             <form action="/logout" method="POST">
                 @csrf
                 <button class=" text-white font-bold px-4 py-2 ml-2 bg-red-400 rounded">LogOut</button>

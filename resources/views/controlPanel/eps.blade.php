@@ -13,15 +13,15 @@
     <header class=" container mx-auto bg-white flex items-center justify-between py-1 px-2">
         <!--Logo-->
         <div>
-            <a href=""><img src="{{ asset('images/logo.jpg') }}" alt="Logo" class=" w-12 h-12 rounded-full object-cover" ></a>
+            <a href="/"><img src="{{ asset('images/logo.jpg') }}" alt="Logo" class=" w-12 h-12 rounded-full object-cover" ></a>
         </div>
 
         <!--Desktop NavBar-->
         <div class=" hidden md:block">
             <nav>
                 <ul class=" flex">
-                    <li class=" md:mr-12 sm:mr-8"><a href="/controlpanel/home">Home</a></li>
-                    <li class=" md:mr-12 sm:mr-8"><a href="/controlpanel/animes">Animes</a></li>
+                    <li class=" md:mr-12 sm:mr-8"><a href="/manage">Home</a></li>
+                    <li class=" md:mr-12 sm:mr-8"><a href="/manage/animes">Animes</a></li>
                 </ul>
             </nav>
         </div>
@@ -71,7 +71,7 @@
             <div class=" p-4">
                 <!--Animes button-->
                 <div class=" w-full max-w-[120px] text-center bg-green-400 rounded">
-                    <a href="/controlpanel/{{ $anime->id }}/eps/new" class=" block py-[15px] text-white text-[17px]">
+                    <a href="/manage/animes/eps/{{ $anime->id }}/new" class=" block py-[15px] text-white text-[17px]">
                         New Ep
                     </a>
                 </div>
@@ -95,8 +95,8 @@
                         </div>
                         
                         <div class=" flex items-center">
-                            <a href="/controlpanel/epupdate/{{ $anime->id }}/{{ $ep->id }}" class=" mr-2 px-4 text-white bg-blue-400 rounded"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
-                            <form action="/controlpanel/delete/{{ $anime->id }}/{{ $ep->id }}" method="POST">
+                            <a href="/manage/animes/eps/{{ $anime->id }}/{{ $ep->id }}/edit" class=" mr-2 px-4 text-white bg-blue-400 rounded"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
+                            <form action="/manage/animes/eps/{{ $anime->id }}/{{ $ep->id }}/delete" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button class=" mr-2 px-4 bg-red-400 text-white rounded " type="submit">Delete</button>

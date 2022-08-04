@@ -20,7 +20,7 @@
                 </div>
     
                 <div>
-                    <form action="/controlpanel/{{ $anime->id }}/eps/new/store" method="POST">
+                    <form action="/manage/animes/eps/{{ $anime->id }}/new/store" method="POST">
                         @csrf
                         <div>
                             @error('name')
