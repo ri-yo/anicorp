@@ -13,15 +13,15 @@
     <header class=" container mx-auto bg-white flex items-center justify-between py-1 px-2">
         <!--Logo-->
         <div>
-            <a href=""><img src="{{ asset('images/logo.jpg') }}" alt="Logo" class=" w-12 h-12 rounded-full object-cover" ></a>
+            <a href="/"><img src="{{ asset('images/logo.jpg') }}" alt="Logo" class=" w-12 h-12 rounded-full object-cover" ></a>
         </div>
 
         <!--Desktop NavBar-->
         <div class=" hidden md:block">
             <nav>
                 <ul class=" flex">
-                    <li class=" md:mr-12 sm:mr-8"><a href="/controlpanel/home">Home</a></li>
-                    <li class=" md:mr-12 sm:mr-8"><a href="/controlpanel/animes">Animes</a></li>
+                    <li class=" md:mr-12 sm:mr-8"><a href="/manage">Home</a></li>
+                    <li class=" md:mr-12 sm:mr-8"><a href="/manage/animes">Animes</a></li>
                 </ul>
             </nav>
         </div>

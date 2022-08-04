@@ -19,7 +19,7 @@ class Admin
         if (auth()->user()->admin == true) {
             return $next($request);
         } else {
-            return response()->json('You are not an administrator');
+            return redirect('/');
         }
         
     }

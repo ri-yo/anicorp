@@ -20,7 +20,7 @@
                 </div>
     
                 <div>
-                    <form action="/register/authenticate" method="POST">
+                    <form action="/register/store" method="POST">
                         @csrf
                         <div>
                             @error('name')

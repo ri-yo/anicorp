@@ -58,7 +58,7 @@
 
             @auth
             @if(Auth::user()->admin)
-            <div class=" text-white font-bold px-4 py-2 ml-2 bg-green-400 rounded"><a href="/manage" class="">Manage</a></div>
+            <div class=" text-white font-bold ml-2 bg-green-400 rounded"><a href="/manage" class=" block px-4 py-2">Manage</a></div>
             @endif
             <form action="/logout" method="POST">
                 @csrf
