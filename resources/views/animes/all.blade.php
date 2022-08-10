@@ -66,7 +66,7 @@
                 <div class=" flex splide__list">
                     @foreach($animes as $key => $anime)
                     <!--Single anime card-->
-                    <div class=" splide__slide max-w-[180px] truncate ...">
+                    <div class=" splide__slide max-w-[180px] truncate ... ">
                         <img src="{{ asset('/storage/'.$anime->animeCover) }}" alt="Anime Cover" class=" h-[260px] max-w-[180px] w-full rounded-xl">
                         <h1 class=" text-white text-lg font-bold">{{ $anime->name }}</h1>
                         <p class=" text-white text-sm">Subbed/Subtitled</p>
@@ -117,7 +117,7 @@
                     
                     @foreach($filteredAnimes as $key => $filteredAnime)
                     <!--Single anime card-->
-                    <div class=" mr-4 mt-2 inline-block max-w-[180px] text-left truncate ...">
+                    <div class=" mr-4 mt-2 inline-block max-w-[180px] text-left truncate ... ">
                         <img src="{{ asset('/storage/'.$filteredAnime->animeCover) }}" alt="Anime Cover" class=" h-[260px] max-w-[180px] w-full rounded-xl">
 
                         <h1 class=" text-white text-lg font-bold">{{ $filteredAnime->name }}</h1>

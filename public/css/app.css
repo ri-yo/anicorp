@@ -540,6 +540,9 @@ video {
     max-width: 1440;
   }
 }
+.fixed {
+  position: fixed;
+}
 .absolute {
   position: absolute;
 }
