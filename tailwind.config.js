@@ -9,6 +9,11 @@ module.exports = {
       'xl': '1440'
     },
     extend: {
+      colors: {
+        'brightGreen' : '#63D915',
+        'brightRed' : '#f3172d',
+        'brightPurple' : 'rgba(104, 85, 224, 1)'
+      }
     },
   },
   plugins: [],

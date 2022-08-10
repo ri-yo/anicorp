@@ -11,7 +11,7 @@
 <body class=" overflow-x-hidden">
 
     <!--Header-->
-    <header class=" container mx-auto bg-white flex items-center justify-between py-1 px-2">
+    <header class=" container mx-auto bg-white flex items-center justify-between px-2">
         <!--Logo-->
         <div>
             <a href="/"><img src="{{ asset('images/logo.jpg') }}" alt="Logo" class=" w-12 h-12 rounded-full object-cover" ></a>
@@ -28,21 +28,20 @@
         </div>
 
         <!--Mobile NavBar-->
-        <div class=" mobileNavBar w-3/4 h-screen block md:hidden absolute top-[55px] right-[-75%] bg-white text-center transition-all duration-500">
+        <div class=" mobileNavBar w-3/4 h-screen block md:hidden absolute top-[46px] right-[-75%] bg-white text-center transition-all duration-500">
             <nav>
                 <ul class="">
-                    <li class=" md:mr-12 sm:mr-8"><a class="block py-2 border-black border-b-[1px] hover:bg-gray-200 transition-all rounded" href="">Home</a></li>
-                    <li class=" md:mr-12 sm:mr-8"><a class="block py-2 border-black border-b-[1px] hover:bg-gray-200 transition-all rounded" href="">Anime List</a></li>
-                    <li class=" md:mr-12 sm:mr-8"><a class="block py-2 border-black border-b-[1px] hover:bg-gray-200 transition-all rounded" href="">Genres</a></li>
+                    <li class=" md:mr-12 sm:mr-8"><a class="block py-2 border-black border-b-[1px] hover:bg-gray-200 transition-all rounded" href="/manage">Home</a></li>
+                    <li class=" md:mr-12 sm:mr-8"><a class="block py-2 border-black border-b-[1px] hover:bg-gray-200 transition-all rounded" href="/manage/animes">Animes</a></li>
                 </ul>
             </nav>
         </div>
 
         <!--Search Bar-->
-        <div class=" searchForm absolute right-[-350px] top-[65px] transition-all duration-500 bg-white rounded p-2">
-            <form action="/">
-                <input type="text" placeholder="Search for animes" name="search" class=" outline-none border-[1px] border-black rounded pl-2">
-                <button class=" px-2 rounded bg-gray-300 outline-none ">Search</button>
+        <div class=" w-auto max-w-[300px] searchForm absolute m-3 right-[-350px] top-[43px] transition-all duration-500 rounded p-2">
+            <form action="/" class=" flex">
+                <input type="text" placeholder="Search for animes" name="search" class=" w-full h-[40px] outline-none border-0 pl-4 rounded-[20px]">
+                <button class=" flex align-center h-[40px] bg-white rounded-[50%] p-3 ml-1"><i class="fa-solid fa-magnifying-glass"></i></button> 
             </form>
         </div>
 
@@ -52,14 +51,14 @@
             <div class=" closeMenuButton hidden cursor-pointer"><i class="fa-solid fa-close"></i></div>
             <div class=" openMenuButton md:hidden cursor-pointer"><i class="fa-solid fa-bars"></i></div>
 
-            <div class=" closeSearch pl-2 cursor-pointer hidden"><i class="fa-solid fa-close"></i></div>
-            <div class=" openSearch pl-2 cursor-pointer"><i class="fa-solid fa-magnifying-glass"></i></div>
+            <div class=" closeSearch pl-2 text-[23px] cursor-pointer hidden"><i class="fa-solid fa-close"></i></div>
+            <div class=" openSearch pl-2 text-[16px] cursor-pointer"><i class="fa-solid fa-magnifying-glass"></i></div>
 
             <div>
                 <form action="/logout" method="POST">
                     @csrf
                     @method('post')
-                    <button class=" text-white px-2 py-2 ml-2 bg-red-400 rounded">LogOut</button>
+                    <button class=" ml-2 py-[0.2rem] px-1 md:px-3 text-sm md:text-[16px] border border-brightRed text-brightRed rounded transition-all duration-300 hover:bg-brightRed hover:text-white font-light">LogOut</button>
                 </form>
             </div>
         </div>

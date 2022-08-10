@@ -15,7 +15,7 @@ $('document').ready(function(){
 
     // Open and close search bar
     $('.openSearch').on('click', function () {
-        $('.searchForm').css('right', '0');
+        $('.searchForm').css('right', '0px');
         $('.openSearch').css('display', 'none');
         $('.closeSearch').css('display', 'block');
     });
