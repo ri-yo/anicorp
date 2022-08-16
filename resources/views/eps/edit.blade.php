@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="{{ asset('images/logo.ico') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-    <title>Anicorp - LogIn</title>
+    <title>Anicorp - Edit ep</title>
 </head>
 <body class=" overflow-hidden">
     <main class=" lg:flex text-center lg:text-left">

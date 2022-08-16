@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="{{ asset('images/logo.ico') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/libs/splide.min.css') }}">
-    <title>Anicorp</title>
+    <title>Anicorp - {{ $anime->name." - ".$currentEp->name }}</title>
 </head>
 <body class=" overflow-hidden">
 
@@ -17,18 +18,17 @@
             <a href="/"><img src="{{ asset('images/logo.jpg') }}" alt="Logo" class=" w-12 h-12 rounded-full object-cover" ></a>
         </div>
 
-        <!--Header Items-->
-        <div class=" flex">
-            <div class=" w-full p-4">
-                <a href="/anime/{{ $anime->id }}" class=" transition duration-300 hover:bg-red-600 hover:text-white bg-white text-[20px] rounded font-bold px-4 py-2 shadow"><i class="fa-solid fa-close"></i></a>
-            </div>
+        <!--Close button-->
+        <div>
+            <a href="/anime/{{ $anime->id }}" class=" transition duration-300 hover:bg-red-600 hover:text-white bg-white text-[20px] rounded font-bold px-4 py-2 shadow"><i class="fa-solid fa-close"></i></a>
         </div>
+
     </header>
 
     <main class=" bg-gray-900 w-full h-screen">
 
         <!--Anime watching screen-->
-        <div class=" w-full h-[520px] ">
+        <div class=" w-full h-[80vh] ">
         <!--Screen inside here-->
         
         {!! $watch !!}
@@ -39,33 +39,33 @@
         </div>
 
         <!--bellow buttons-->
-        <div class=" w-full h-[70px] px-12 flex justify-between items-center">
+        <div class=" w-full px-2 md:px-8 py-4 flex justify-between items-center">
 
             @if($previousEp == null)
-            <div class=" text-center max-w-[115px] rounded  bg-white max-h-[40px] opacity-50 cursor-pointer">
-                <p class=" block  py-2 px-4"><i class="fa-solid fa-arrow-left"></i> Previous</p>
+            <div class=" text-center rounded  bg-white max-h-[40px] opacity-50 cursor-pointer">
+                <span class=" block px-2 md:px-4 py-2"><i class="fa-solid fa-arrow-left inline-block"></i></span>
             </div>
             @else
             <!--Previous-->
             <div class=" text-center max-w-[115px] rounded  bg-white max-h-[40px]">
-                <a href="/anime/{{ $anime->id }}/ep/{{ $previousEp }}" class=" block  py-2 px-4"><i class="fa-solid fa-arrow-left"></i> Previous</a>
+                <a href="/anime/{{ $anime->id }}/ep/{{ $previousEp }}" class=" block  py-2 px-2 md:px-4"><i class="fa-solid fa-arrow-left"></i></a>
             </div>
             @endif
 
             <!--Anime info-->
-            <div class=" text-center">
-                <p class=" text-white font-bold">{{ $anime->name }}</p>
-                <p class=" text-white text-[12px]">{{ $currentEp->ep }} - {{ $currentEp->name }}</p>
+            <div class=" text-center max-w-[150px] md:max-w-[400px] ">
+                <p class=" text-white text-[14px] md:text-[16px] font-bold truncate">{{ $anime->name }}</p>
+                <p class=" text-white text-[12px] truncate">{{ $currentEp->ep }} - {{ $currentEp->name }}</p>
             </div>
 
             <!--Previous-->
             @if($nextEp == null)
             <div class=" text-center max-w-[115px] max-h-[40px] rounded  bg-white opacity-50">
-                <p class=" block  py-2 px-4 cursor-pointer"><i class="fa-solid fa-arrow-right"></i> Next Ep</p>
+                <p class=" block  py-2 px-2 md:px-4 cursor-pointer"><i class="fa-solid fa-arrow-right"></i></p>
             </div>
             @else
             <div class=" text-center max-w-[115px] max-h-[40px] rounded  bg-white">
-                <a href="/anime/{{ $anime->id }}/ep/{{ $nextEp }}" class=" block  py-2 px-4"><i class="fa-solid fa-arrow-right"></i> Next Ep</a>
+                <a href="/anime/{{ $anime->id }}/ep/{{ $nextEp }}" class=" block  py-2 px-2 md:px-4"><i class="fa-solid fa-arrow-right"></i></a>
             </div>
             @endif
             
