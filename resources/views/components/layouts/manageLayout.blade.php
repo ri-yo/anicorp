@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="{{ asset('images/logo.ico') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/libs/splide.min.css') }}">
     <title>Anicorp - Manage</title>
@@ -41,7 +42,7 @@
         <div class=" w-auto max-w-[300px] searchForm absolute m-3 right-[-350px] top-[43px] transition-all duration-500 rounded p-2">
             <form action="/" class=" flex">
                 <input type="text" placeholder="Search for animes" name="search" class=" w-full h-[40px] outline-none border-0 pl-4 rounded-[20px]">
-                <button class=" flex align-center h-[40px] bg-white rounded-[50%] p-3 ml-1"><i class="fa-solid fa-magnifying-glass"></i></button> 
+                <button class=" flex align-center h-[40px] bg-white rounded-[50%] p-3 ml-1 transition-all duration-300 hover:opacity-70"><i class="fa-solid fa-magnifying-glass"></i></button> 
             </form>
         </div>
 
