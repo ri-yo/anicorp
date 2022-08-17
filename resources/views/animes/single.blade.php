@@ -1,12 +1,12 @@
 <x-layouts.standartLayout>
     <main class=" bg-black">
         <section>
-            <div class=" h-auto w-full BgCustomCss pt-12" style="background-image: linear-gradient(to bottom, transparent, #000000), url('/storage/{{ $anime->animeBackground }}');">
+            <div class=" px-2 h-auto w-full BgCustomCss pt-12" style="background-image: linear-gradient(to bottom, transparent, #000000), url('/storage/{{ $anime->animeBackground }}');">
                 <!--Single anime info-->
                 <div class=" mb-12">
                     <div class=" flex flex-col items-center">
                         <img src="{{ asset('/storage/'.$anime->animeCover) }}" alt="Anime cover" class=" w-[220px] rounded">
-                        <h1 class=" text-white text-4xl mb-4">{{ $anime->name }}</h1>
+                        <h1 class=" text-white text-4xl mb-4 text-center ">{{ $anime->name }}</h1>
                         <p class=" text-white text-center max-w-[600px]">
                             {{ $anime->description }}
                         </p>
