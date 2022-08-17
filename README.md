@@ -20,6 +20,8 @@
 * php artisan key:generate
 * php artisan migrate:fresh
 * php artisan storage:link
+* npm install
+* npm run watch
 * php artisan serve
 
 ## Admin accounts 
